@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="AppCarnesDF.Views.UpdateFontSizes">
+
+    <Grid BackgroundColor="Transparent"
+          ColumnSpacing="0">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="6*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackLayout Grid.Column="0" 
+                     BackgroundColor="Transparent">
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding BackCommand}"/>
+            </StackLayout.GestureRecognizers>
+        </StackLayout>
+        
+        <StackLayout Grid.Column="1"
+                     BackgroundColor="{StaticResource WhiteColor}">
+
+            <StackLayout VerticalOptions="CenterAndExpand"
+                         Orientation="Vertical"
+                         Spacing="10"
+                         Margin="1">
+                
+                <Label Text="Configuración"
+                       Style="{StaticResource LabelMaterialRed}"
+                       FontSize="{Binding SizeFontsCookie}"
+                       HorizontalOptions="Center"
+                       Margin="0,0,0,10"/>
+
+                <!--Boton regular-->
+                <StackLayout Orientation="Horizontal"
+                             Margin="0,0,0,10">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding SmallCommand}"/>
+                    </StackLayout.GestureRecognizers>
+                    <Grid ColumnSpacing="0"
+                          HorizontalOptions="FillAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="5*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackLayout Grid.Column="0">
+                            <Image Source="{StaticResource ic_fontletter}"
+                                   Aspect="AspectFit"
+                                   HorizontalOptions="Center"
+                                   WidthRequest="20"
+                                   HeightRequest="20"/>
+                        </StackLayout>
+                        
+                        <Label Grid.Column="1"
+                               Text="Texto regular"
+                               HorizontalOptions="Start"
+                               TextColor="Black"
+                               FontFamily="{StaticResource RobotoSlabBoldFont}"/>
+                    </Grid>
+                </StackLayout>
+
+                <!--Boton medio-->
+                <StackLayout Orientation="Horizontal"
+                             Margin="0,0,0,5">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding MediumCommand}"/>
+                    </StackLayout.GestureRecognizers>
+                    <Grid ColumnSpacing="0"
+                          HorizontalOptions="FillAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="5*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackLayout Grid.Column="0">
+                            <Image Source="{StaticResource ic_fontletter}"
+                                   Aspect="AspectFit"
+                                   HorizontalOptions="Center"
+                                   WidthRequest="30"
+                                   HeightRequest="30"/>
+                        </StackLayout>
+
+                        <Label Grid.Column="1"
+                               Text="Texto medio"
+                               HorizontalOptions="Start"
+                               TextColor="Black"
+                               FontFamily="{StaticResource RobotoSlabBoldFont}"/>
+                    </Grid>
+                </StackLayout>
+
+                <!--Boton grande-->
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding LargeCommand}"/>
+                    </StackLayout.GestureRecognizers>
+
+                    <Grid ColumnSpacing="0"
+                          HorizontalOptions="FillAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="5*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackLayout Grid.Column="0">
+                            <Image Source="{StaticResource ic_fontletter}"
+                                   Aspect="AspectFit"
+                                   HorizontalOptions="Center"
+                                   WidthRequest="40"
+                                   HeightRequest="40"/>
+                        </StackLayout>
+
+                        <Label Grid.Column="1"
+                               Text="Texto grande"
+                               TextColor="Black"
+                               FontFamily="{StaticResource RobotoSlabBoldFont}"
+                               HorizontalOptions="Start"/>
+                    </Grid>
+                </StackLayout>
+            </StackLayout>
+
+        </StackLayout>
+
+    </Grid>
+</pages:PopupPage>

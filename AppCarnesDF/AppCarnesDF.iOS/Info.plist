@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>UIDeviceFamily</key>
+	<array>
+		<integer>1</integer>
+	</array>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>MinimumOSVersion</key>
+	<string>9.0</string>
+	<key>CFBundleDisplayName</key>
+	<string>Momentos Don Fernando</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.cgc.AppCarnesDF</string>
+	<key>UILaunchStoryboardName</key>
+	<string>NewLaunchScreen</string>
+	<key>XSAppIconAssets</key>
+	<string>Assets.xcassets/AppIcons.appiconset</string>
+	<key>UIMainStoryboardFile</key>
+	<string>NewLaunchScreen</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
+	<key>NSHomeKitUsageDescription</key>
+	<string>Enable Momentos Don Fernando to control HomeKit enabled devices with your personal account.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Enable Momentos Don Fernando to access to your camera to upload a photo to use only in your personal profile, in order to personalize your own account.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Enable Momentos Don Fernando to access your camera roll to upload your photos and save ones you have taken with the app to use only in your personal profile.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>This app needs access to microphone.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Enable Momentos Don Fernando to access your camera roll to upload your photos and save ones you have taken with the app to use only in your personal profile..</string>
+	<key>UIRequiresFullScreen</key>
+	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>RobotoSlab-Bold.ttf</string>
+		<string>RobotoSlab-Light.ttf</string>
+		<string>RobotoSlab-Regular.ttf</string>
+		<string>RobotoSlab-Thin.ttf</string>
+		<string>Cookie-Regular.ttf</string>
+	</array>
+	<key>XSLaunchImageAssets</key>
+	<string>Assets.xcassets/LaunchImages.launchimage</string>
+	<key>CFBundleName</key>
+	<string>Momentos Don Fernando</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Enable Momentos Don Fernando to access your location to show how close you are from our restaurants.</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Enable Momentos Don Fernando to access access to calendar usage to you to set your brithday.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Enable Momentos Don Fernando to access to your always location to show how close you are from a restaurant.</string>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>Enable Momentos Don Fernando to know about your personal information in order to use it in our restaurants to identify you; your data will not be used in any malicious way.</string>
+	<key>CFBundleVersion</key>
+	<string>3.0</string>
+	<key>CFBundleShortVersionString</key>
+	<string>8</string>
+</dict>
+</plist>

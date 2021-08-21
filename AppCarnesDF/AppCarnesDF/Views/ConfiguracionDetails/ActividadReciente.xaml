@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:behaviors1="clr-namespace:AppCarnesDF.Helpers.Behaviors"
+             mc:Ignorable="d"
+             NavigationPage.HasNavigationBar="False"
+             ios:Page.UseSafeArea="true"
+             x:Class="AppCarnesDF.Views.ConfiguracionDetails.ActividadReciente"
+             BackgroundImageSource="{StaticResource common_background}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="lstLabelStyle" TargetType="Label" BasedOn="{StaticResource LabelMaterialRed}">
+                <Setter Property="FontSize" Value="{Binding Source={x:Reference Name = 'lstActividades'}, Path=BindingContext.SizeFontsCookie}" />
+            </Style>
+            <Style x:Key="lstLabelStyleO" TargetType="Label" BasedOn="{StaticResource LabelRobotoBlack}">
+                <Setter Property="FontSize" Value="{Binding Source={x:Reference Name = 'lstActividades'}, Path=BindingContext.SizeFontsOptima}" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <Frame BackgroundColor="{StaticResource WhiteColor}"
+               Margin="30"
+               CornerRadius="8"
+               VerticalOptions="FillAndExpand">
+
+            <StackLayout VerticalOptions="FillAndExpand">
+                
+                <Label Text="Actividad Reciente"
+                       Style="{StaticResource LabelMaterialRed}"
+                       FontSize="{Binding SizeFontsCookie}"/>
+
+                <AbsoluteLayout VerticalOptions="FillAndExpand"
+                                Margin="0,15,0,0">
+                    <ListView x:Name="lstActividades"
+                              IsVisible="{Binding ListViewVisible}"
+                              ItemsSource="{Binding Actividades}"
+                              AbsoluteLayout.LayoutFlags="All"
+                              AbsoluteLayout.LayoutBounds="0,0,1,1"
+                              SelectedItem="{Binding SelectedItem}"
+                              SeparatorVisibility="None"
+                              HasUnevenRows="True">
+
+                        <ListView.Behaviors>
+                            <behaviors1:DeselectItemBehaviour />
+                        </ListView.Behaviors>
+                        
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid VerticalOptions="FillAndExpand"
+                                          RowSpacing="2"
+                                          ColumnSpacing="10"
+                                          Margin="0,20,0,0">
+
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="80"/>
+                                        </Grid.RowDefinitions>
+
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="2*"/>
+                                            <ColumnDefinition Width="6*"/>
+                                            <ColumnDefinition Width="2*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label x:Name="Fecha"
+                                               Grid.Column="0"
+                                               Style="{StaticResource lstLabelStyle}"
+                                               Text="{Binding Fecha_Mov}"/>
+
+                                        <StackLayout Grid.Column="1">
+                                            <Label x:Name="Descripcion"
+                                                   Text="{Binding Descripcion}"
+                                                   HorizontalOptions="Center"
+                                                   Style="{StaticResource lstLabelStyleO}"/>
+
+                                            <Label x:Name="Restaurante"
+                                                   Text="{Binding Sucursal}"
+                                                   HorizontalOptions="Center"
+                                                   FontFamily="{StaticResource RobotoSlabBoldFont}"
+                                                   FontSize="Micro"/>
+                                        </StackLayout>
+
+                                        <Label x:Name="Monto"
+                                               Grid.Column="2"
+                                               Text="{Binding Saldo, StringFormat='₡ {0}'}"
+                                               HorizontalOptions="Center"
+                                               Style="{StaticResource lstLabelStyleO}"/>
+
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+                    <Label AbsoluteLayout.LayoutFlags="All"
+                           AbsoluteLayout.LayoutBounds="0,0,1,1"
+                           IsVisible="{Binding LabelVisible}"
+                           Style="{StaticResource LabelMaterialBlackO}"
+                           FontSize="{Binding SizeFontsOptima}"
+                           VerticalTextAlignment="Center"
+                           HorizontalTextAlignment="Center"
+                           Text="Estimado usuario, no existen registros para mostrar"/>
+
+                    <ImageButton x:Name="btnBack" 
+                                 Aspect="Fill"
+                                 BackgroundColor="Transparent"
+                                 Margin="20"
+                                 AbsoluteLayout.LayoutBounds="0,1,100,100"
+                                 AbsoluteLayout.LayoutFlags="XProportional,YProportional"
+                                 Command="{Binding BackCommand}">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal">
+                                    <VisualState.Setters>
+                                        <Setter Property="Source" Value="{StaticResource ic_backdark}"/>
+                                        <Setter Property="Scale" Value="1"/>
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <VisualState.Setters>
+                                        <Setter Property="Source" Value="{StaticResource ic_backlight}"/>
+                                        <Setter Property="Scale" Value="0.8"/>
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </ImageButton>
+
+                </AbsoluteLayout>
+
+            </StackLayout>
+            
+        </Frame>
+    </ContentPage.Content>
+</ContentPage>

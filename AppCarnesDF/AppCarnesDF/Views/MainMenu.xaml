@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:views="clr-namespace:AppCarnesDF.Views"
+             BarBackgroundColor="{StaticResource Text}"
+             BarTextColor="{StaticResource WhiteColor}"
+             SelectedTabColor="{StaticResource Primary}"
+             UnselectedTabColor="{StaticResource WhiteColor}"
+             mc:Ignorable="d"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="AppCarnesDF.Views.MainMenu">
+
+    <TabbedPage.Children>
+
+        <NavigationPage Title="Home" 
+                        Icon="{StaticResource ic_home}"
+                        Appearing="General_Appearing">
+            <x:Arguments>
+                <views:General x:Name="viewGeneral"/>
+            </x:Arguments>
+        </NavigationPage>
+
+        <NavigationPage Title="Promociones" 
+                        Icon="{StaticResource ic_promocion}">
+            <x:Arguments>
+                <views:Promociones x:Name="viewPromociones"/>
+            </x:Arguments>
+        </NavigationPage>
+
+        <NavigationPage Title="Productos"
+                        Icon="{StaticResource ic_producto}">
+            <x:Arguments>
+                <views:Productos x:Name="viewProductos"/>
+            </x:Arguments>
+        </NavigationPage>
+
+        <NavigationPage Title="Configuracion"
+                        Icon="{StaticResource ic_menu}">
+            <x:Arguments>
+                <views:NavConfigurationView x:Name="viewConfiguracion"/>
+            </x:Arguments>
+        </NavigationPage>
+
+    </TabbedPage.Children>
+
+</TabbedPage>

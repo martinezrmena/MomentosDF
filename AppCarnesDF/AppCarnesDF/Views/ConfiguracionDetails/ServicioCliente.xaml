@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:externalrender="clr-namespace:AppCarnesDF.Helpers.CustomRender"
+             xmlns:customexternal="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:behavoirs="clr-namespace:AppCarnesDF.Helpers.Behaviors"
+             mc:Ignorable="d"
+             ios:Page.UseSafeArea="true"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="AppCarnesDF.Views.ConfiguracionDetails.ServicioCliente"
+             BackgroundImageSource="{StaticResource ic_backgroundservice}">
+
+    <ContentPage.Content>
+        <Frame BackgroundColor="{StaticResource WhiteColor}"
+               Grid.Row="1"
+               Margin="20"
+               CornerRadius="8"
+               VerticalOptions="FillAndExpand" >
+            <ScrollView VerticalOptions="FillAndExpand">
+                <StackLayout>
+                    <StackLayout Orientation="Horizontal" Margin="0,20,0,10"
+                                 VerticalOptions="Start">
+                        <Label Text="Servicio al cliente"
+                               Style="{StaticResource LabelMaterialRed}"
+                               FontSize="40"
+                               HorizontalOptions="CenterAndExpand"/>
+                        <Image Source="{StaticResource ic_exit}"
+                               Aspect="AspectFit"
+                               WidthRequest="20"
+                               HeightRequest="20"
+                               HorizontalOptions="End">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ClosingCommand}"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </StackLayout>
+                    
+                    <StackLayout VerticalOptions="FillAndExpand"
+                                 Spacing="20"
+                                 Margin="20,5,20,40">
+
+                        <Label Text="Asunto"
+                               Style="{StaticResource LabelRobotoBlack}"
+                               FontSize="{Binding SizeFontsOptima}"/>
+
+                        <externalrender:ExtendedEntry x:Name="txbAsunto"
+                                                      FontFamily="{StaticResource RobotoSlabRegularFont}"
+                                                      FontSize="{Binding SizeFontsOptima}"
+                                                      Keyboard="Text"
+                                                      Placeholder="Asunto"
+                                                      Text="{Binding Asunto}"
+                                                      ErrorText="El asunto es un campo requerido"
+                                                      BorderErrorColor="Red">
+                            <externalrender:ExtendedEntry.Behaviors>
+                                <behavoirs:EmptyValidationBehavior/>
+                            </externalrender:ExtendedEntry.Behaviors>
+                        </externalrender:ExtendedEntry>
+
+                        <Label Text="Mensajes"
+                               Style="{StaticResource LabelRobotoBlack}"
+                               FontSize="{Binding SizeFontsOptima}"/>
+
+                        <externalrender:ExtendedEditor x:Name="txbMensaje"
+                                                       VerticalOptions="FillAndExpand"
+                                                       HorizontalOptions="FillAndExpand"
+                                                       Text="{Binding Mensaje}"
+                                                       FontFamily="{StaticResource RobotoSlabRegularFont}"
+                                                       FontSize="{Binding SizeFontsOptima}"
+                                                       Placeholder="Mensaje"
+                                                       ErrorText="El mensaje es un campo requerido"
+                                                       BorderErrorColor="Red">
+                            <externalrender:ExtendedEditor.Behaviors>
+                                <behavoirs:EditorEmptyBehavior/>
+                            </externalrender:ExtendedEditor.Behaviors>
+                        </externalrender:ExtendedEditor>
+
+
+                        <customexternal:PancakeView CornerRadius="8"
+                                                    BackgroundColor="{StaticResource Primary}"
+                                                    WidthRequest="300"
+                                                    HeightRequest="60">
+
+                            <customexternal:PancakeView.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding EnviarCommand}"/>
+                            </customexternal:PancakeView.GestureRecognizers>
+
+                            <StackLayout Orientation="Horizontal" 
+                                         HorizontalOptions="Center">
+
+                                <Image Source="{StaticResource ic_email}"
+                                       HeightRequest="20"
+                                       WidthRequest="20"/>
+                                <Label Style="{StaticResource LabelMaterialWhite}"
+                                       FontSize="{Binding Path=SizeFontsCookie}"
+                                       Text="Enviar"/>
+                            </StackLayout>
+                        </customexternal:PancakeView>
+                    </StackLayout>
+                </StackLayout>
+
+            </ScrollView>
+        </Frame>
+    </ContentPage.Content>
+</ContentPage>

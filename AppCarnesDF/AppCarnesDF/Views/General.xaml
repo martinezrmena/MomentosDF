@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             xmlns:externalrender="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             mc:Ignorable="d"
+             NavigationPage.HasNavigationBar="False"
+             ios:Page.UseSafeArea="true"
+             x:Class="AppCarnesDF.Views.General"
+             BackgroundColor="{StaticResource BlackColor}">
+    <ContentPage.Content>
+        <AbsoluteLayout x:Name="MainStackLayout"
+                        VerticalOptions="FillAndExpand"
+                        HorizontalOptions="FillAndExpand">
+            <Image AbsoluteLayout.LayoutFlags="All"
+                   AbsoluteLayout.LayoutBounds="0,0,1,1"
+                   Aspect="Fill"
+                   Source="{StaticResource common_background}"/>
+            <StackLayout Spacing="0"
+                         Margin="20,40,20,20"
+                         AbsoluteLayout.LayoutBounds="0,0,1,1"
+                         AbsoluteLayout.LayoutFlags="All">
+                <!--Cuadro Superior Principal-->
+                <Grid RowSpacing="0" ColumnSpacing="0" VerticalOptions="Start">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="3*"/>
+                        <RowDefinition Height="70"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <externalrender:PancakeView Grid.Row="1"
+                                                Grid.Column="0"
+                                                Grid.RowSpan="1"
+                                                Grid.ColumnSpan="4" 
+                                                BackgroundColor="{StaticResource Primary}"
+                                                CornerRadius="8,8,0,0" 
+                                                IsClippedToBounds="true"
+                                                Margin="0">
+                        <StackLayout VerticalOptions="Center">
+                        </StackLayout>
+                    </externalrender:PancakeView>
+
+                    <Image VerticalOptions="Center" HeightRequest="150" WidthRequest="160" HorizontalOptions="Center"
+                               Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="2" Aspect="Fill"
+                               Source="{StaticResource logo}"/>
+                </Grid>
+
+                <!--Cuadro Inferior Principal-->
+                <externalrender:PancakeView BackgroundColor="{StaticResource Primary}"
+                                                VerticalOptions="FillAndExpand"
+                                                CornerRadius="0,0,8,8">
+                    <Grid VerticalOptions="FillAndExpand"
+                          ColumnSpacing="0"
+                          RowSpacing="0">
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="4.5*"/>
+                            <RowDefinition Height="2.5*"/>
+                            <RowDefinition Height="2.5*"/>
+                        </Grid.RowDefinitions>
+
+                        <!--Primer Cuadro-->
+                        <StackLayout Orientation="Horizontal" 
+                                     HorizontalOptions="FillAndExpand"
+                                     Grid.Row="0"
+                                     Padding="5"
+                                     Margin="2"
+                                     Spacing="0">
+
+                            <Grid ColumnSpacing="0"
+                                  RowSpacing="0"
+                                  HorizontalOptions="FillAndExpand"
+                                  Margin="2">
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="5*"/>
+                                    <ColumnDefinition Width="5*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <StackLayout Grid.Column="0" Grid.Row="0"
+                                             Grid.RowSpan="2"
+                                             VerticalOptions="Center"
+                                             Spacing="10">
+                                    <Label Style="{StaticResource LabelMaterialWhite}"
+                                           FontSize="{Binding Path=SizeFontsCookie}"
+                                           d:Text="Comida"
+                                           Margin="0"
+                                           VerticalOptions="Center"
+                                           Text="{Binding NombreUser, StringFormat='¡Hola {0:N}!'}"/>
+                                    <!--<Label Style="{StaticResource LabelMaterialWhite}"
+                                           FontSize="{Binding Path=SizeFontsCookie}"
+                                           d:Text="Tuya"
+                                           Margin="0"
+                                           Text="{Binding UserAutenticated.Nombre, StringFormat='Nivel {0:N}'}"/>-->
+                                </StackLayout>
+
+                                <Frame CornerRadius="8" 
+                                       Margin="0" 
+                                       Padding="0"
+                                       IsClippedToBounds="True"
+                                       Grid.Column="1" Grid.Row="0"
+                                       Grid.RowSpan="2"
+                                       HeightRequest="110"
+                                       WidthRequest="120"
+                                       VerticalOptions="CenterAndExpand"
+                                       HorizontalOptions="CenterAndExpand">
+                                    <Image Aspect="AspectFill">
+                                        <Image.Source>
+                                            <UriImageSource CachingEnabled="True"
+                                                            Uri="{Binding UserAutenticated.PictureURL}" />
+                                        </Image.Source>
+                                    </Image>
+                                </Frame>
+
+                            </Grid>
+
+
+                        </StackLayout>
+
+                        <!--Segundo Cuadro-->
+                        <externalrender:PancakeView BackgroundColor="{StaticResource Secondary}"
+                                                    CornerRadius="8,8,0,0" 
+                                                    IsClippedToBounds="true"
+                                                    Margin="0,5,0,0"
+                                                    Grid.Row="1"
+                                                    Padding="0">
+                            <StackLayout VerticalOptions="Center">
+                                <Label Style="{StaticResource LabelMaterialWhite}"
+                                       FontSize="{Binding Path=SizeFontsCookie}"
+                                       Text="Puntos Acumulados"
+                                       HorizontalOptions="Center"/>
+                                <Label Style="{StaticResource LabelMaterialWhite}"
+                                       FontSize="40"
+                                       Text="{Binding UserAutenticated.Puntos, StringFormat='₡ {0:N}'}"
+                                       HorizontalOptions="Center"/>
+                            </StackLayout>
+                        </externalrender:PancakeView>
+
+                        <!--Tercer Cuadro-->
+                        <StackLayout BackgroundColor="{StaticResource Secondary}"
+                                     Grid.Row="2"
+                                     VerticalOptions="FillAndExpand">
+                            <externalrender:PancakeView BackgroundColor="{StaticResource SecondaryDark}"
+                                                CornerRadius="8,8,8,8" 
+                                                IsClippedToBounds="true"
+                                                VerticalOptions="FillAndExpand">
+                                <externalrender:PancakeView.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding ActividadRecienteCommand}"/>
+                                </externalrender:PancakeView.GestureRecognizers>
+
+                                <StackLayout Orientation="Horizontal" 
+                                             HorizontalOptions="Center"
+                                             VerticalOptions="Center" Padding="5">
+                                    <Image Source="{StaticResource ic_actividad_white}"
+                                           HeightRequest="20"
+                                           WidthRequest="20"
+                                           Margin="0,0,5,0"/>
+
+                                    <Label Style="{StaticResource LabelMaterialWhite}"
+                                               FontSize="{Binding Path=SizeFontsCookie}"
+                                               Text="Actividad Reciente"/>
+                                </StackLayout>
+                            </externalrender:PancakeView>
+                        </StackLayout>
+                    </Grid>
+                </externalrender:PancakeView>
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

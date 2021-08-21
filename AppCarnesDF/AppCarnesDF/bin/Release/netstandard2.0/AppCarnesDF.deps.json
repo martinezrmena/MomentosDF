@@ -1,0 +1,390 @@
+{
+  "runtimeTarget": {
+    "name": ".NETStandard,Version=v2.0/",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETStandard,Version=v2.0": {},
+    ".NETStandard,Version=v2.0/": {
+      "AppCarnesDF/1.0.0": {
+        "dependencies": {
+          "Acr.UserDialogs": "7.0.4",
+          "Microsoft.AspNet.WebApi.Client": "5.2.7",
+          "NETStandard.Library": "2.0.3",
+          "Newtonsoft.Json": "12.0.2",
+          "Plugin.FirebasePushNotification": "2.3.6",
+          "Rg.Plugins.Popup": "1.1.5.188",
+          "WindowsAzure.Storage": "9.3.3",
+          "Xam.Plugin.Media": "4.0.1.5",
+          "Xamarin.Essentials": "1.3.1",
+          "Xamarin.Forms": "4.8.0.1821",
+          "Xamarin.Forms.InputKit": "3.0.12",
+          "Xamarin.Forms.MultiSelectListView": "2.1.0",
+          "Xamarin.Forms.PancakeView": "1.1.5",
+          "sqlite-net-pcl": "1.5.231"
+        },
+        "runtime": {
+          "AppCarnesDF.dll": {}
+        }
+      },
+      "Acr.UserDialogs/7.0.4": {
+        "runtime": {
+          "lib/netstandard2.0/Acr.UserDialogs.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Microsoft.AspNet.WebApi.Client/5.2.7": {
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.2",
+          "Newtonsoft.Json.Bson": "1.0.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Net.Http.Formatting.dll": {
+            "assemblyVersion": "5.2.7.0",
+            "fileVersion": "5.2.61128.0"
+          }
+        }
+      },
+      "Microsoft.NETCore.Platforms/1.1.0": {},
+      "NETStandard.Library/2.0.3": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0"
+        }
+      },
+      "Newtonsoft.Json/12.0.2": {
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.0.2.23222"
+          }
+        }
+      },
+      "Newtonsoft.Json.Bson/1.0.1": {
+        "dependencies": {
+          "NETStandard.Library": "2.0.3",
+          "Newtonsoft.Json": "12.0.2"
+        },
+        "runtime": {
+          "lib/netstandard1.3/Newtonsoft.Json.Bson.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.1.20722"
+          }
+        }
+      },
+      "Plugin.FirebasePushNotification/2.3.6": {
+        "dependencies": {
+          "NETStandard.Library": "2.0.3"
+        },
+        "runtime": {
+          "lib/netstandard1.0/Plugin.FirebasePushNotification.Abstractions.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          },
+          "lib/netstandard1.0/Plugin.FirebasePushNotification.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Plugin.Permissions/3.0.0.12": {
+        "runtime": {
+          "lib/netstandard2.0/Plugin.Permissions.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Rg.Plugins.Popup/1.1.5.188": {
+        "dependencies": {
+          "Xamarin.Forms": "4.8.0.1821"
+        },
+        "runtime": {
+          "lib/netstandard1.0/Rg.Plugins.Popup.dll": {
+            "assemblyVersion": "1.1.5.188",
+            "fileVersion": "1.1.5.188"
+          }
+        }
+      },
+      "sqlite-net-pcl/1.5.231": {
+        "dependencies": {
+          "NETStandard.Library": "2.0.3",
+          "SQLitePCLRaw.bundle_green": "1.1.11"
+        },
+        "runtime": {
+          "lib/netstandard1.1/SQLite-net.dll": {
+            "assemblyVersion": "1.5.231.0",
+            "fileVersion": "1.5.231.0"
+          }
+        }
+      },
+      "SQLitePCLRaw.bundle_green/1.1.11": {
+        "dependencies": {
+          "NETStandard.Library": "2.0.3",
+          "SQLitePCLRaw.core": "1.1.11"
+        },
+        "runtime": {
+          "lib/netstandard1.1/SQLitePCLRaw.batteries_green.dll": {
+            "assemblyVersion": "1.1.11.121",
+            "fileVersion": "1.0.0.0"
+          },
+          "lib/netstandard1.1/SQLitePCLRaw.batteries_v2.dll": {
+            "assemblyVersion": "1.1.11.121",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "SQLitePCLRaw.core/1.1.11": {
+        "dependencies": {
+          "NETStandard.Library": "2.0.3"
+        },
+        "runtime": {
+          "lib/netstandard1.1/SQLitePCLRaw.core.dll": {
+            "assemblyVersion": "1.1.11.121",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "System.Numerics.Vectors/4.5.0": {
+        "runtime": {
+          "lib/netstandard2.0/System.Numerics.Vectors.dll": {
+            "assemblyVersion": "4.1.4.0",
+            "fileVersion": "4.6.26515.6"
+          }
+        }
+      },
+      "WindowsAzure.Storage/9.3.3": {
+        "dependencies": {
+          "NETStandard.Library": "2.0.3",
+          "Newtonsoft.Json": "12.0.2"
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.dll": {
+            "assemblyVersion": "9.3.2.0",
+            "fileVersion": "9.3.2.0"
+          }
+        }
+      },
+      "Xam.Plugin.Media/4.0.1.5": {
+        "dependencies": {
+          "Plugin.Permissions": "3.0.0.12"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Plugin.Media.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Xamarin.Essentials/1.3.1": {
+        "dependencies": {
+          "System.Numerics.Vectors": "4.5.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Xamarin.Essentials.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Xamarin.Forms/4.8.0.1821": {
+        "runtime": {
+          "lib/netstandard2.0/Xamarin.Forms.Core.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "4.8.0.410"
+          },
+          "lib/netstandard2.0/Xamarin.Forms.Platform.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "4.8.0.410"
+          },
+          "lib/netstandard2.0/Xamarin.Forms.Xaml.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "4.8.0.410"
+          }
+        }
+      },
+      "Xamarin.Forms.InputKit/3.0.12": {
+        "dependencies": {
+          "Xamarin.Forms": "4.8.0.1821"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Plugin.InputKit.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Xamarin.Forms.MultiSelectListView/2.1.0": {
+        "dependencies": {
+          "Xamarin.Forms": "4.8.0.1821"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Xamarin.Forms.MultiSelectListView.dll": {
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.0.0"
+          }
+        }
+      },
+      "Xamarin.Forms.PancakeView/1.1.5": {
+        "dependencies": {
+          "Xamarin.Forms": "4.8.0.1821"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Xamarin.Forms.PancakeView.dll": {
+            "assemblyVersion": "1.2.0.0",
+            "fileVersion": "1.2.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "AppCarnesDF/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Acr.UserDialogs/7.0.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-J+3+rSVtAAUqvaXC0NGZ6HAcSXMaMyqvKsV1sMoraT7g+Zv/r4QmgUUITPu875n0uO57Y87Xn6IbLVDPje6tlw==",
+      "path": "acr.userdialogs/7.0.4",
+      "hashPath": "acr.userdialogs.7.0.4.nupkg.sha512"
+    },
+    "Microsoft.AspNet.WebApi.Client/5.2.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/76fAHknzvFqbznS6Uj2sOyE9rJB3PltY+f53TH8dX9RiGhk02EhuFCWljSj5nnqKaTsmma8DFR50OGyQ4yJ1g==",
+      "path": "microsoft.aspnet.webapi.client/5.2.7",
+      "hashPath": "microsoft.aspnet.webapi.client.5.2.7.nupkg.sha512"
+    },
+    "Microsoft.NETCore.Platforms/1.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
+      "path": "microsoft.netcore.platforms/1.1.0",
+      "hashPath": "microsoft.netcore.platforms.1.1.0.nupkg.sha512"
+    },
+    "NETStandard.Library/2.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-st47PosZSHrjECdjeIzZQbzivYBJFv6P2nv4cj2ypdI204DO+vZ7l5raGMiX4eXMJ53RfOIg+/s4DHVZ54Nu2A==",
+      "path": "netstandard.library/2.0.3",
+      "hashPath": "netstandard.library.2.0.3.nupkg.sha512"
+    },
+    "Newtonsoft.Json/12.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rTK0s2EKlfHsQsH6Yx2smvcTCeyoDNgCW7FEYyV01drPlh2T243PR2DiDXqtC5N4GDm4Ma/lkxfW5a/4793vbA==",
+      "path": "newtonsoft.json/12.0.2",
+      "hashPath": "newtonsoft.json.12.0.2.nupkg.sha512"
+    },
+    "Newtonsoft.Json.Bson/1.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5PYT/IqQ+UK31AmZiSS102R6EsTo+LGTSI8bp7WAUqDKaF4wHXD8U9u4WxTI1vc64tYi++8p3dk3WWNqPFgldw==",
+      "path": "newtonsoft.json.bson/1.0.1",
+      "hashPath": "newtonsoft.json.bson.1.0.1.nupkg.sha512"
+    },
+    "Plugin.FirebasePushNotification/2.3.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-I0gpYTYPpbA8fikkUAV8u1mxmluigKsxls4Vzn7OrcIoqyF/TNgDI55GeJuMrBzI1UrkCoSV1vkZKgZIEXXLOQ==",
+      "path": "plugin.firebasepushnotification/2.3.6",
+      "hashPath": "plugin.firebasepushnotification.2.3.6.nupkg.sha512"
+    },
+    "Plugin.Permissions/3.0.0.12": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VrYqI/ufk3bH6gTP1JJlLByjhS0CHu3riKmdozhX9/qXA9hlvLolmcqKJdyAqpzmrVC74m3ZtirUBIrBxvT1Lw==",
+      "path": "plugin.permissions/3.0.0.12",
+      "hashPath": "plugin.permissions.3.0.0.12.nupkg.sha512"
+    },
+    "Rg.Plugins.Popup/1.1.5.188": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-PE7uHJ/LuI5pSO1HpgjJ+v2KhNfftzqt/L1AoGH/5mX0fP7pcW6lG4FbUHuCFKolrzJfLLotuuET+hfN50Whpg==",
+      "path": "rg.plugins.popup/1.1.5.188",
+      "hashPath": "rg.plugins.popup.1.1.5.188.nupkg.sha512"
+    },
+    "sqlite-net-pcl/1.5.231": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-B9jScvqkishSMkpa9Mc4Q85LTHxRTzcUXZx9EQqgrvdz7MFEDHfpiPcKdjy1qXHdmHttEXfY4h6gu4FlgWP2Sw==",
+      "path": "sqlite-net-pcl/1.5.231",
+      "hashPath": "sqlite-net-pcl.1.5.231.nupkg.sha512"
+    },
+    "SQLitePCLRaw.bundle_green/1.1.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Hqp8IF/RLjbypkLm+t+1RqAX8EKuWEkj7wkLXplfENQoPnE127cvTmaDvaQKtt7a5QsD/HNjFDr1z5f9q2wdPg==",
+      "path": "sqlitepclraw.bundle_green/1.1.11",
+      "hashPath": "sqlitepclraw.bundle_green.1.1.11.nupkg.sha512"
+    },
+    "SQLitePCLRaw.core/1.1.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-QT17CyQAQIbTCu6pW5+uVA8BXqRzquiDI1tr5Un6c1YZcQydPmGPuYYng9xMs2UHUDYHbTu+JDkp55WR+qo9bQ==",
+      "path": "sqlitepclraw.core/1.1.11",
+      "hashPath": "sqlitepclraw.core.1.1.11.nupkg.sha512"
+    },
+    "System.Numerics.Vectors/4.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-QQTlPTl06J/iiDbJCiepZ4H//BVraReU4O4EoRw1U02H5TLUIT7xn3GnDp9AXPSlJUDyFs4uWjWafNX6WrAojQ==",
+      "path": "system.numerics.vectors/4.5.0",
+      "hashPath": "system.numerics.vectors.4.5.0.nupkg.sha512"
+    },
+    "WindowsAzure.Storage/9.3.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VUV8j6dzkU/7vDgk5k+ob5g7nnch2fNByr0p9aOxMGFGk+tAnTehrZ4qnClF04CVozP1GNN2zrnbsxCmr+iZBg==",
+      "path": "windowsazure.storage/9.3.3",
+      "hashPath": "windowsazure.storage.9.3.3.nupkg.sha512"
+    },
+    "Xam.Plugin.Media/4.0.1.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-a5l/M2Tl06BqBX/uhM/pr+q1jDkh2tRQr5Ne9rjAuD9VYn5STE+7kVFTzIUNPMnMr9PZLJkWP5WAr/tBN5oepw==",
+      "path": "xam.plugin.media/4.0.1.5",
+      "hashPath": "xam.plugin.media.4.0.1.5.nupkg.sha512"
+    },
+    "Xamarin.Essentials/1.3.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+51728AdZ/qtABGvcIaNXgEoL2jAtxAXLHS8PvGCP0pb6n7twBqYpfgkmwHYVgu+U99szgtL+Jot8L+OXorPcA==",
+      "path": "xamarin.essentials/1.3.1",
+      "hashPath": "xamarin.essentials.1.3.1.nupkg.sha512"
+    },
+    "Xamarin.Forms/4.8.0.1821": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3e/5DwE/bExRLtM1tA3iI9E6TCnIF+e9+lINgwLOUs0g49ebFmQiNDXBKb06jmqqV4VyNaUGZqs0bI13ruv8bQ==",
+      "path": "xamarin.forms/4.8.0.1821",
+      "hashPath": "xamarin.forms.4.8.0.1821.nupkg.sha512"
+    },
+    "Xamarin.Forms.InputKit/3.0.12": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-fcfRUEUn+C6cEWA5iBYIZFn7G13WaYY5GgIEMNBk2H/pw9i94ouDtzvjFZ2JpXeZ/QjAHKLUVEz5ZOnFndlExQ==",
+      "path": "xamarin.forms.inputkit/3.0.12",
+      "hashPath": "xamarin.forms.inputkit.3.0.12.nupkg.sha512"
+    },
+    "Xamarin.Forms.MultiSelectListView/2.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-wkJbDuHC5xQzF3lDaYUByse/BUUdMAtliq3dwqmPDvk2PXNk4wq1z8/yXA+KZRn4+JjvRH2l076+54YDDzaTTw==",
+      "path": "xamarin.forms.multiselectlistview/2.1.0",
+      "hashPath": "xamarin.forms.multiselectlistview.2.1.0.nupkg.sha512"
+    },
+    "Xamarin.Forms.PancakeView/1.1.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9cWDftaxvArEqQG5v0F0WgYP1TizTmUVfoKTQWAYx8iJKQI7SPxLvVPHIJvM1O5RCkPQN6XB8F51u1ABJO5wXw==",
+      "path": "xamarin.forms.pancakeview/1.1.5",
+      "hashPath": "xamarin.forms.pancakeview.1.1.5.nupkg.sha512"
+    }
+  }
+}

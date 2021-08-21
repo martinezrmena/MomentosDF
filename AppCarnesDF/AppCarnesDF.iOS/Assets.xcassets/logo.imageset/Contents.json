@@ -1,0 +1,91 @@
+{
+  "images": [
+    {
+      "appearances": [],
+      "idiom": "universal"
+    },
+    {
+      "appearances": [],
+      "scale": "1x",
+      "idiom": "universal"
+    },
+    {
+      "appearances": [],
+      "scale": "3x",
+      "idiom": "universal"
+    },
+    {
+      "appearances": [],
+      "scale": "2x",
+      "idiom": "iphone",
+      "filename": "logo-1.png"
+    },
+    {
+      "appearances": [],
+      "scale": "2x",
+      "idiom": "iphone",
+      "subtype": "retina4"
+    },
+    {
+      "appearances": [],
+      "scale": "3x",
+      "idiom": "iphone",
+      "filename": "logo-2.png"
+    },
+    {
+      "appearances": [],
+      "idiom": "ipad"
+    },
+    {
+      "appearances": [],
+      "scale": "1x",
+      "idiom": "ipad"
+    },
+    {
+      "appearances": [],
+      "scale": "3x",
+      "idiom": "ipad",
+      "filename": "Fondo logo.png"
+    },
+    {
+      "appearances": [],
+      "scale": "2x",
+      "idiom": "universal",
+      "filename": "Fondo logo1.png"
+    },
+    {
+      "appearances": [],
+      "scale": "3x",
+      "idiom": "car",
+      "filename": "Fondo logo2.png"
+    },
+    {
+      "appearances": [],
+      "scale": "1x",
+      "idiom": "iphone",
+      "filename": "Fondo logo3.png"
+    },
+    {
+      "appearances": [],
+      "scale": "2x",
+      "idiom": "ipad",
+      "filename": "Fondo logo4.png"
+    },
+    {
+      "appearances": [],
+      "scale": "2x",
+      "idiom": "car",
+      "filename": "Fondo logo5.png"
+    },
+    {
+      "appearances": [],
+      "idiom": "iphone",
+      "filename": "Fondo logo6.pdf"
+    }
+  ],
+  "properties": {},
+  "info": {
+    "version": 1,
+    "author": "xcode"
+  }
+}

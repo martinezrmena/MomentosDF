@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:externalrender="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             mc:Ignorable="d"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="AppCarnesDF.Views.PlanLealtad"
+             ios:Page.UseSafeArea="true"
+             BackgroundColor="{StaticResource WhiteColor}">
+
+    <ContentPage.Content>
+        <StackLayout Spacing="0" Margin="10,20,10,10">
+
+            <StackLayout Orientation="Horizontal"
+                         Margin="0,10,0,10">
+                
+                <Grid Margin="10,0,10,0"
+                      HorizontalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="8*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Plan de lealtad"
+                           Grid.Column="0"
+                           Style="{StaticResource LabelMaterialRed}"
+                           HorizontalOptions="Start"
+                           VerticalOptions="Center"
+                           FontSize="40"/>
+                    <Image Source="{StaticResource ic_exit}"
+                           Grid.Column="1"
+                           HeightRequest="25"
+                           WidthRequest="25"
+                           Aspect="AspectFit"
+                           HorizontalOptions="End">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ClosingCommand}"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Grid>
+            </StackLayout>
+            
+
+            <CollectionView x:Name="cvPlanesLealtad"
+                            SelectionMode="Single"
+                            Margin="10,10,10,5"
+                            HeightRequest="40"
+                            ItemsSource="{Binding PlanesLealtad}"
+                            SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+                            ItemsLayout="HorizontalList">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Vertical"
+                                     Margin="10"
+                                     BackgroundColor="White"
+                                     VerticalOptions="FillAndExpand"
+                                     HorizontalOptions="Center">
+                            <Label Text="{Binding TipoCliente}"
+                                   Margin="15,0,15,0"
+                                   Style="{StaticResource LabelMaterialBlackO}"/>
+
+                            <StackLayout x:Name="stkContainer"
+                                         HeightRequest="3"
+                                         BackgroundColor="{Binding BackgroundColor}">
+
+                            </StackLayout>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <ScrollView VerticalOptions="FillAndExpand">
+
+                <StackLayout Margin="5" VerticalOptions="FillAndExpand">
+                    <!--Cuadro Inferior Principal-->
+                    <externalrender:PancakeView BackgroundColor="{StaticResource Primary}"
+                                                VerticalOptions="FillAndExpand"
+                                                CornerRadius="8,8,8,8">
+                        <Grid VerticalOptions="FillAndExpand"
+                              RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="4*"/>
+                                <RowDefinition Height="3*"/>
+                                <RowDefinition Height="3*"/>
+                            </Grid.RowDefinitions>
+                            <!--Primer Cuadro-->
+                            <StackLayout Orientation="Horizontal" 
+                                         Grid.Row="0"
+                                         Padding="0"
+                                         Margin="20"
+                                         Spacing="30">
+
+                                <StackLayout Orientation="Vertical">
+
+                                    <Image HorizontalOptions="Center"
+                                           HeightRequest="30"
+                                           WidthRequest="30"
+                                           Margin="0,10,0,15">
+                                        <Image.Source>
+                                            <UriImageSource CachingEnabled="True"
+                                                            Uri="{Binding SelectedItem.Foto}"/>
+                                        </Image.Source>
+                                    </Image>
+
+                                    <Label Style="{StaticResource LabelMaterialWhiteO}"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="FillAndExpand"
+                                           FontSize="{Binding Path=SizeFontsOptima}"
+                                           Text="{Binding SelectedItem.Descripcion}"/>
+                                </StackLayout>
+                            </StackLayout>
+
+                            <!--Segundo Cuadro-->
+                            <externalrender:PancakeView BackgroundColor="{StaticResource Secondary}"
+                                                        CornerRadius="8,8,0,0" 
+                                                        Grid.Row="1"
+                                                        IsClippedToBounds="true"
+                                                        Margin="0,20,0,0"
+                                                        Padding="30">
+                                <StackLayout VerticalOptions="FillAndExpand">
+                                    <Label Style="{StaticResource LabelMaterialWhite}"
+                                           FontSize="{Binding Path=SizeFontsCookie}"
+                                           Text="{Binding SelectedItem.Beneficios}"
+                                           VerticalOptions="FillAndExpand"
+                                           HorizontalOptions="Center"/>
+                                </StackLayout>
+                            </externalrender:PancakeView>
+
+                            <!--Tercer Cuadro-->
+                            
+                            <StackLayout BackgroundColor="{StaticResource Secondary}"
+                                         Grid.Row="2"
+                                         VerticalOptions="FillAndExpand">
+                                <externalrender:PancakeView BackgroundColor="{StaticResource SecondaryDark}"
+                                                CornerRadius="8,8,8,8" 
+                                                IsClippedToBounds="true"
+                                                VerticalOptions="FillAndExpand">
+                                    <StackLayout Orientation="Vertical" 
+                                                 HorizontalOptions="Center"
+                                                 VerticalOptions="Center" Padding="15">
+                                        <Label Style="{StaticResource LabelMaterialWhite}"
+                                               FontSize="{Binding Path=SizeFontsCookie}"
+                                               Text="Bono por cambio de nivel"/>
+                                        <Label Style="{StaticResource LabelMaterialWhite}"
+                                               FontSize="{Binding Path=SizeFontsCookie}"
+                                               Text="{Binding SelectedItem.BonoNivel, StringFormat='{0:N} %'}"
+                                               HorizontalOptions="Center"/>
+                                    </StackLayout>
+                                </externalrender:PancakeView>
+                            </StackLayout>
+                        </Grid>
+                    </externalrender:PancakeView>
+                </StackLayout>
+
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

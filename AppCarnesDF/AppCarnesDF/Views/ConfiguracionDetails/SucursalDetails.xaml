@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             mc:Ignorable="d"
+             NavigationPage.HasNavigationBar="False"
+             ios:Page.UseSafeArea="true"
+             x:Class="AppCarnesDF.Views.ConfiguracionDetails.SucursalDetails">
+    <ContentPage.Content>
+        <AbsoluteLayout VerticalOptions="FillAndExpand">
+            <Image Source="{StaticResource ic_backgroundservice}"
+                   Aspect="AspectFill"
+                   AbsoluteLayout.LayoutFlags="All"
+                   AbsoluteLayout.LayoutBounds="0,0,1,1"/>
+            
+            <Grid AbsoluteLayout.LayoutFlags="All"
+                  AbsoluteLayout.LayoutBounds="0,0,1,1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2.5*"/>
+                    <RowDefinition Height="7.5*"/>
+                </Grid.RowDefinitions>
+                <Frame BackgroundColor="{StaticResource WhiteColor}"
+                       Grid.Row="1"
+                       Margin="20"
+                       CornerRadius="12"
+                       VerticalOptions="FillAndExpand" >
+                    <StackLayout VerticalOptions="FillAndExpand">
+                        <Label Text="{Binding SucursalDetails.Nombre}"
+                               FontSize="40"
+                               HorizontalOptions="Start"
+                               Style="{StaticResource LabelMaterialRed}"
+                               Margin="5"/>
+                        <ScrollView VerticalOptions="FillAndExpand">
+                            <Grid RowSpacing="5" 
+                                  ColumnSpacing="0"
+                                  Margin="0"
+                                  Padding="0"
+                                  HeightRequest="450">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="50"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="3*"/>
+                                    <ColumnDefinition Width="7*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <StackLayout Grid.Row="0" Grid.Column="0"
+                                             Orientation="Vertical"
+                                             VerticalOptions="Center"
+                                             IsVisible="{Binding TiendaVisible}">
+                                    <Image HeightRequest="30"
+                                           VerticalOptions="Center"
+                                           WidthRequest="30"
+                                           Source="{StaticResource ic_tienda}"/>
+                                    <Label Text="Tienda"
+                                           HorizontalTextAlignment="Center"
+                                           Style="{StaticResource LabelRobotoBlack}"
+                                           TextColor="Black"
+                                           FontSize="Micro"/>
+                                </StackLayout>
+
+                                <Label Text="{Binding SucursalDetails.HorarioTienda}"
+                                       HorizontalOptions="Start"
+                                       Grid.Row="0" Grid.Column="1"
+                                       FontSize="{Binding SizeFontsOptima}"
+                                       VerticalOptions="Center"
+                                       Style="{StaticResource LabelRobotoBlack}"
+                                       IsVisible="{Binding TiendaVisible}"/>
+
+                                <Image Grid.Row="1" Grid.Column="0"
+                                       HeightRequest="30"
+                                       VerticalOptions="Center"
+                                       Source="{Binding SucursalDetails.IconoGoogleMaps}"
+                                       HorizontalOptions="End"
+                                       WidthRequest="30"
+                                       Margin="0,0,20,0"/>
+
+                                <Label Grid.Row="1" Grid.Column="1"
+                                       Text="Ir con Google Maps"
+                                       BackgroundColor="Transparent"
+                                       HorizontalOptions="Start"
+                                       Margin="20,10,0,10"
+                                       FontSize="{Binding SizeFontsOptima}"
+                                       Style="{StaticResource LabelRobotoBlack}">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding GoogleMapsCommand}"/>
+                                        </Label.GestureRecognizers>
+                                </Label>
+                                
+                                <Image Grid.Row="2" Grid.Column="0"
+                                       HeightRequest="30"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="End"
+                                       Source="{Binding SucursalDetails.IconoWaze}"
+                                       WidthRequest="30"
+                                       Margin="0,0,10,0"/>
+
+                                <Label Grid.Row="2" Grid.Column="1"
+                                       Text="Ir con Waze"
+                                       HorizontalOptions="Start"
+                                       Margin="20,10,0,20"
+                                       FontSize="{Binding SizeFontsOptima}"
+                                       Style="{StaticResource LabelRobotoBlack}">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding WazeMapsCommand}"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
+
+                                <StackLayout Orientation="Horizontal"
+                                             Grid.Row="3" Grid.Column="1"
+                                             IsVisible="{Binding PhoneVisible}">
+                                    <Image WidthRequest="30"
+                                           HeightRequest="30"
+                                           Source="{StaticResource ic_llamada}"/>
+
+                                    <Label Text="Telefonos"
+                                           VerticalTextAlignment="Center"
+                                           HorizontalOptions="FillAndExpand"
+                                           FontSize="{Binding SizeFontsOptima}"
+                                           Style="{StaticResource LabelRobotoBlack}"/>
+                                </StackLayout>
+
+                                <CollectionView x:Name="cvSucursales"
+                                                Grid.Row="4" Grid.Column="1"
+                                                IsVisible="{Binding PhoneVisible}"
+                                                SelectionMode="Single"
+                                                HeightRequest="50"
+                                                SelectionChanged="cvSucursales_SelectionChanged"
+                                                ItemsSource="{Binding TelefonosList}">
+                                    <CollectionView.ItemsLayout>
+                                        <GridItemsLayout Orientation="Horizontal" 
+                                                         SnapPointsAlignment="Center" 
+                                                         SnapPointsType="Mandatory"/>
+                                    </CollectionView.ItemsLayout>
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate>
+                                            <Label Text="{Binding Number}"
+                                                   BackgroundColor="{StaticResource WhiteColor}"
+                                                   Grid.Row="1"
+                                                   Margin="10,0,10,0"
+                                                   HorizontalTextAlignment="Center"
+                                                   VerticalTextAlignment="Center"
+                                                   HorizontalOptions="Center"
+                                                   FontFamily="{StaticResource RobotoSlabRegularFont}"
+                                                   FontSize="16"/>
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>
+
+                            </Grid>
+                        </ScrollView>
+                    </StackLayout>
+                </Frame>
+            </Grid>
+            
+            <ImageButton Aspect="AspectFill"
+                         BackgroundColor="Transparent"
+                         Margin="20"
+                         AbsoluteLayout.LayoutBounds="0.1,0.95,100,100"
+                         AbsoluteLayout.LayoutFlags="XProportional,YProportional"
+                         Command="{Binding BackCommand}">
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal">
+                            <VisualState.Setters>
+                                <Setter Property="Source" Value="{StaticResource ic_backdark}"/>
+                                <Setter Property="Scale" Value="1"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Pressed">
+                            <VisualState.Setters>
+                                <Setter Property="Source" Value="{StaticResource ic_backlight}"/>
+                                <Setter Property="Scale" Value="0.8"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </ImageButton>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

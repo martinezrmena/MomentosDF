@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage 
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AppCarnesDF.Views.AlertMessages">
+
+    <StackLayout Margin="20" VerticalOptions="Center">
+        <ScrollView>
+            <Frame BackgroundColor="{StaticResource WhiteColor}"
+                   CornerRadius="8">
+                <StackLayout Margin="5">
+                    <Label x:Name="lblTitle" Text="{Binding Title}"
+                           HorizontalOptions="Start"
+                           FontSize="{Binding Path=SizeFontsCookie}"
+                           Style="{StaticResource LabelMaterialRed}"
+                           Margin="0,0,0,4"/>
+                    
+                    <Label x:Name="lblContent"
+                           Text="{Binding Message}"
+                           FontSize="{Binding Path=SizeFontsOptima}"
+                           FontFamily="{StaticResource RobotoSlabRegularFont}"
+                           TextColor="{StaticResource BlackColor}"/>
+                    
+                    <Button x:Name="btnAceptar"
+                            Text="{Binding ButtonText}"
+                            BackgroundColor="Transparent"
+                            FontSize="{Binding Path=SizeFontsOptima}"
+                            FontFamily="{StaticResource RobotoSlabBoldFont}"
+                            TextColor="{StaticResource RedMaterial}"
+                            Margin="0,5,0,0"
+                            Command="{Binding CerrarCommand}"
+                            HorizontalOptions="End"/>
+                    
+                </StackLayout>
+            </Frame>
+        </ScrollView>
+    </StackLayout>
+    
+</pages:PopupPage>

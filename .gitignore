@@ -1,0 +1,8 @@
+﻿################################################################################
+# Este archivo .gitignore ha sido creado automáticamente por Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/AppCarnesDF/v16
+/AppCarnesDF/AppCarnesDF.iOS/bin/iPhoneSimulator/Debug
+/AppCarnesDF/AppCarnesDF.Android/bin
+/AppCarnesDF/AppCarnesDF.Android/obj

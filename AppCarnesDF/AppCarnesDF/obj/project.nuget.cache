@@ -1,0 +1,29 @@
+{
+  "version": 2,
+  "dgSpecHash": "edkAVjveOzjprmYR2QcEC2o9p1IxMAWbXh29h4Qbfj6uZ8pAMDIAm+oAsldZw41FjQ4s4t8/kB3JfdvcmG8ANg==",
+  "success": true,
+  "projectFilePath": "D:\\Proyectos GIT\\MOMENTOS DON FERNANDO\\XamarinForms\\AppCarnesDF\\AppCarnesDF\\AppCarnesDF.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\15cw1005la\\.nuget\\packages\\acr.userdialogs\\7.0.4\\acr.userdialogs.7.0.4.nupkg.sha512",
+    "C:\\Users\\15cw1005la\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.7\\microsoft.aspnet.webapi.client.5.2.7.nupkg.sha512",
+    "C:\\Users\\15cw1005la\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\15cw1005la\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\15cw1005la\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
+    "C:\\Users\\15cw1005la\\.nuget\\packages\\newtonsoft.json.bson\\1.0.1\\newtonsoft.json.bson.1.0.1.nupkg.sha512",
+    "C:\\Users\\15cw1005la\\.nuget\\packages\\plugin.firebasepushnotification\\2.3.6\\plugin.firebasepushnotification.2.3.6.nupkg.sha512",
+    "C:\\Users\\15cw1005la\\.nuget\\packages\\plugin.permissions\\3.0.0.12\\plugin.permissions.3.0.0.12.nupkg.sha512",
+    "C:\\Users\\15cw1005la\\.nuget\\packages\\rg.plugins.popup\\1.1.5.188\\rg.plugins.popup.1.1.5.188.nupkg.sha512",
+    "C:\\Users\\15cw1005la\\.nuget\\packages\\sqlite-net-pcl\\1.5.231\\sqlite-net-pcl.1.5.231.nupkg.sha512",
+    "C:\\Users\\15cw1005la\\.nuget\\packages\\sqlitepclraw.bundle_green\\1.1.11\\sqlitepclraw.bundle_green.1.1.11.nupkg.sha512",
+    "C:\\Users\\15cw1005la\\.nuget\\packages\\sqlitepclraw.core\\1.1.11\\sqlitepclraw.core.1.1.11.nupkg.sha512",
+    "C:\\Users\\15cw1005la\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\15cw1005la\\.nuget\\packages\\windowsazure.storage\\9.3.3\\windowsazure.storage.9.3.3.nupkg.sha512",
+    "C:\\Users\\15cw1005la\\.nuget\\packages\\xam.plugin.media\\4.0.1.5\\xam.plugin.media.4.0.1.5.nupkg.sha512",
+    "C:\\Users\\15cw1005la\\.nuget\\packages\\xamarin.essentials\\1.3.1\\xamarin.essentials.1.3.1.nupkg.sha512",
+    "C:\\Users\\15cw1005la\\.nuget\\packages\\xamarin.forms\\4.8.0.1821\\xamarin.forms.4.8.0.1821.nupkg.sha512",
+    "C:\\Users\\15cw1005la\\.nuget\\packages\\xamarin.forms.inputkit\\3.0.12\\xamarin.forms.inputkit.3.0.12.nupkg.sha512",
+    "C:\\Users\\15cw1005la\\.nuget\\packages\\xamarin.forms.multiselectlistview\\2.1.0\\xamarin.forms.multiselectlistview.2.1.0.nupkg.sha512",
+    "C:\\Users\\15cw1005la\\.nuget\\packages\\xamarin.forms.pancakeview\\1.1.5\\xamarin.forms.pancakeview.1.1.5.nupkg.sha512"
+  ],
+  "logs": []
+}

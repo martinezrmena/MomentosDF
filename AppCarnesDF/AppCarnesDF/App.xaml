@@ -1,0 +1,283 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AppCarnesDF.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!--FONTS-->
+            <OnPlatform x:TypeArguments="x:String" x:Key="RobotoSlabBoldFont">
+                <On Platform="Android" Value="RobotoSlab-Bold.ttf#RobotoSlab-Bold" />
+                <On Platform="iOS" Value="RobotoSlab-Bold" />
+            </OnPlatform>
+
+            <OnPlatform x:TypeArguments="x:String" x:Key="RobotoSlabLightFont">
+                <On Platform="Android" Value="RobotoSlab-Light.ttf#RobotoSlab-Light" />
+                <On Platform="iOS" Value="RobotoSlab-Light" />
+            </OnPlatform>
+
+            <OnPlatform x:TypeArguments="x:String" x:Key="RobotoSlabRegularFont">
+                <On Platform="Android" Value="RobotoSlab-Regular.ttf#RobotoSlab-Regular" />
+                <On Platform="iOS" Value="RobotoSlab-Regular" />
+            </OnPlatform>
+
+            <OnPlatform x:TypeArguments="x:String" x:Key="RobotoSlabThinFont">
+                <On Platform="Android" Value="RobotoSlab-Regular.ttf#RobotoSlab-Thin" />
+                <On Platform="iOS" Value="RobotoSlab-Thin" />
+            </OnPlatform>
+
+            <OnPlatform x:TypeArguments="x:String" x:Key="CookieRegularFonts">
+                <On Platform="Android" Value="Cookie-Regular.ttf#Cookie-Regular" />
+                <On Platform="iOS" Value="Cookie-Regular" />
+            </OnPlatform>
+
+            <!-- COLORES -->
+            <Color x:Key="WhiteColor">#ffffff</Color>
+            <Color x:Key="WhiteColorMaterial">#D5E4E8</Color>
+            <Color x:Key="BlackColor">#141414</Color>
+            <Color x:Key="GrayColor">#414A4C</Color>
+            <Color x:Key="LightGrayMaterial">#FDFFFC</Color>
+            <Color x:Key="GrayMaterial">#F9F9F9</Color>
+            <Color x:Key="RedColor">#A40606</Color>
+            <Color x:Key="BlueColor">#005E7C</Color>
+            <Color x:Key="DarkBlueColor">#263962</Color>
+            <Color x:Key="BlueMaterial">#0094C6</Color>
+            <Color x:Key="RedMaterial">#3B0D11</Color>
+            <Color x:Key="LightRed">#702A2A</Color>
+            <!--COLORES CGC-->
+            <Color x:Key="Primary">#872125</Color>
+            <Color x:Key="Secondary">#6B0E12</Color>
+            <Color x:Key="SecondaryDark">#400406</Color>
+            <Color x:Key="Icons">#878787</Color>
+            <Color x:Key="Text">#272727</Color>
+            <Color x:Key="TextBackgroun">#FFFFFF</Color>
+
+            <!--ICONOS-->
+            <FileImageSource x:Key="ic_promocion" File="ic_promocion.png"/>
+            <FileImageSource x:Key="ic_producto" File="ic_producto.png"/>
+            <FileImageSource x:Key="ic_menu" File="ic_menu.png"/>
+            <FileImageSource x:Key="ic_menu2" File="ic_menu2.png"/>
+            <FileImageSource x:Key="ic_home" File="ic_home.png"/>
+            <FileImageSource x:Key="ic_backdark" File="ic_backdark.png"/>
+            <FileImageSource x:Key="ic_backlight" File="ic_backlight.png"/>
+            <FileImageSource x:Key="ic_recoverpassword" File="ic_recoverpassword.png"/>
+            <FileImageSource x:Key="ic_email" File="ic_email.png"/>
+            <FileImageSource x:Key="ic_configuracion" File="ic_configuracion.png"/>
+            <FileImageSource x:Key="ic_save" File="ic_save.png"/>
+            <FileImageSource x:Key="logo_black" File="logo_contraste.png"/>
+            <FileImageSource x:Key="ic_exit" File="ic_exit.png"/>
+            <FileImageSource x:Key="ic_fontletter" File="ic_fontletter.png"/>
+            <FileImageSource x:Key="common_background" File="common_background.png"/>
+            <FileImageSource x:Key="ic_backgroundservice" File="ic_backgroundservicio.png"/>
+            <FileImageSource x:Key="ic_select" File="select.png"/>
+            <FileImageSource x:Key="ic_cloud_off" File="ic_cloud_off.png"/>
+            <OnPlatform x:Key="logo" x:TypeArguments="ImageSource">
+                <OnPlatform.iOS>
+                    <FileImageSource File="logo"/>
+                </OnPlatform.iOS>
+                <OnPlatform.Android>
+                    <FileImageSource File="logo"/>
+                </OnPlatform.Android>
+            </OnPlatform>
+            <OnPlatform x:Key="mainscreen" x:TypeArguments="ImageSource">
+                <OnPlatform.iOS>
+                    <FileImageSource File="ic_mainscreen"/>
+                </OnPlatform.iOS>
+                <OnPlatform.Android>
+                    <FileImageSource File="ic_mainscreen"/>
+                </OnPlatform.Android>
+            </OnPlatform>
+            <OnPlatform x:Key="mainpage" x:TypeArguments="ImageSource">
+                <OnPlatform.iOS>
+                    <FileImageSource File="ic_mainpage"/>
+                </OnPlatform.iOS>
+                <OnPlatform.Android>
+                    <FileImageSource File="ic_mainpage"/>
+                </OnPlatform.Android>
+            </OnPlatform>
+
+            <!--CONFIGURACIÓN-->
+            <FileImageSource x:Key="ic_perfil" File="ic_perfil.png"/>
+            <FileImageSource x:Key="ic_codigo" File="ic_codigo.png"/>
+            <FileImageSource x:Key="ic_notificacion" File="ic_notificacion.png"/>
+            <FileImageSource x:Key="ic_actividadreciente" File="ic_actividadreciente.png"/>
+            <FileImageSource x:Key="ic_acercade" File="ic_acercade.png"/>
+            <FileImageSource x:Key="ic_privacidad" File="ic_privacidad.png"/>
+            <FileImageSource x:Key="ic_serviciocliente" File="ic_serviciocliente.png"/>
+            <FileImageSource x:Key="ic_restaurante" File="ic_restaurante.png"/>
+            <FileImageSource x:Key="ic_planlealtad" File="ic_planlealtad.png"/>
+            <FileImageSource x:Key="ic_planlealtadwhite" File="ic_planlealtadwhite.png"/>
+            <FileImageSource x:Key="ic_share" File="ic_share.png"/>
+            <FileImageSource x:Key="ic_llamada" File="llamada.png"/>
+            <FileImageSource x:Key="ic_tienda" File="tienda.png"/>
+            <FileImageSource x:Key="ic_sucursal" File="ic_sucursal.png"/>
+            <FileImageSource x:Key="ic_actividad_white" File="actividad_white.png"/>
+            <FileImageSource x:Key="ic_logout" File="ic_logout.png"/>
+
+            <!--Color de la barra de estado-->
+            <Color x:Key="LightBlack">#0e1111</Color>
+            <!--Color de la barra de Navegacion-->
+            <Color x:Key="DarkGray">#232b2b</Color>
+            <Color x:Key="SelectedValue">#D36F6B</Color>
+
+            <!--LABEL-->
+            <Style x:Key="LabelMaterialRed" TargetType="{x:Type Label}">
+                <Setter Property="TextColor" Value="{StaticResource Primary}" />
+                <Setter Property="FontFamily" Value="{StaticResource CookieRegularFonts}" />
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+            </Style>
+
+            <Style x:Key="LabelMaterialWhite" TargetType="{x:Type Label}">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontFamily" Value="{StaticResource CookieRegularFonts}" />
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+            </Style>
+
+            <Style x:Key="LabelMaterialWhiteO" TargetType="{x:Type Label}">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontFamily" Value="{StaticResource RobotoSlabRegularFont}" />
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+            </Style>
+
+            <Style x:Key="LabelMaterialBlackO" TargetType="{x:Type Label}">
+                <Setter Property="TextColor" Value="{StaticResource BlackColor}" />
+                <Setter Property="FontFamily" Value="{StaticResource RobotoSlabRegularFont}" />
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+            </Style>
+
+            <Style x:Key="LabelRobotoBlack" TargetType="{x:Type Label}">
+                <Setter Property="TextColor" Value="{StaticResource BlackColor}" />
+                <Setter Property="FontFamily" Value="{StaticResource RobotoSlabRegularFont}" />
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+            </Style>
+
+            <Style x:Key="LabelMaterialWhiteB" TargetType="{x:Type Label}">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontFamily" Value="{StaticResource RobotoSlabBoldFont}" />
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+            </Style>
+
+            <Style x:Key="MenuLabel" TargetType="{x:Type Label}">
+                <Setter Property="TextColor" Value="{StaticResource BlackColor}" />
+                <Setter Property="FontFamily" Value="Tahoma" />
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+            </Style>
+
+            <Style x:Key="SimpleLabel" TargetType="{x:Type Label}">
+                <Setter Property="TextColor" Value="{StaticResource WhiteColor}" />
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+            </Style>
+
+            <Style x:Key="ListViewItemHeader" TargetType="{x:Type Label}">
+                <Setter Property="TextColor" Value="{StaticResource WhiteColor}" />
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+            </Style>
+            
+            <Style x:Key="ListViewItem" TargetType="{x:Type Label}">
+                <Setter Property="TextColor" Value="{StaticResource WhiteColor}" />
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+            </Style>
+            
+            <!--BOXVIEW-->
+            <Style x:Key="BoxViewStyle" TargetType="{x:Type BoxView}">
+                <Setter Property="BackgroundColor" Value="{StaticResource WhiteColor}" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="HeightRequest" Value="2"/>
+            </Style>
+
+            <Style x:Key="BVStyleSecondary" TargetType="{x:Type BoxView}">
+                <Setter Property="BackgroundColor" Value="{StaticResource GrayColor}" />
+                <Setter Property="WidthRequest" Value="1"/>
+                <Setter Property="HeightRequest" Value="1"/>
+            </Style>
+
+            <!--BUTTON-->
+            <Style x:Key="FacebookStyle" TargetType="{x:Type Button}">
+                <Setter Property="BackgroundColor" Value="{StaticResource DarkBlueColor}"/>
+                <Setter Property="BorderWidth" Value="0" />
+                <Setter Property="BorderColor" Value="Transparent" />
+                <Setter Property="CornerRadius" Value="8"/>
+                <Setter Property="FontFamily" Value="Tahoma" />
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="WidthRequest" Value="250"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                <Setter Property="TextColor" Value="{StaticResource WhiteColor}"/>
+            </Style>
+
+            <Style x:Key="GoogleStyle" TargetType="{x:Type Button}">
+                <Setter Property="BackgroundColor" Value="{StaticResource RedColor}"/>
+                <Setter Property="BorderWidth" Value="0" />
+                <Setter Property="BorderColor" Value="Transparent" />
+                <Setter Property="CornerRadius" Value="8"/>
+                <Setter Property="FontFamily" Value="Tahoma" />
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="WidthRequest" Value="250"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                <Setter Property="TextColor" Value="{StaticResource WhiteColor}"/>
+            </Style>
+
+            <Style x:Key="MainStyleRed" TargetType="{x:Type Button}">
+                <Setter Property="BackgroundColor" Value="{StaticResource Secondary}"/>
+                <Setter Property="BorderWidth" Value="0" />
+                <Setter Property="BorderColor" Value="Transparent" />
+                <Setter Property="CornerRadius" Value="8"/>
+                <Setter Property="WidthRequest" Value="250"/>
+                <Setter Property="FontFamily" Value="{StaticResource CookieRegularFonts}"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                <Setter Property="TextColor" Value="{StaticResource WhiteColor}"/>
+            </Style>
+
+            <Style x:Key="MainWhite" TargetType="{x:Type Button}">
+                <Setter Property="BackgroundColor" Value="{StaticResource WhiteColor}"/>
+                <Setter Property="BorderWidth" Value="0" />
+                <Setter Property="BorderColor" Value="Transparent" />
+                <Setter Property="CornerRadius" Value="8"/>
+                <Setter Property="WidthRequest" Value="300"/>
+                <Setter Property="FontFamily" Value="{StaticResource CookieRegularFonts}"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                <Setter Property="TextColor" Value="{StaticResource BlackColor}"/>
+            </Style>
+
+            <Style x:Key="MainRed" TargetType="{x:Type Button}">
+                <Setter Property="BackgroundColor" Value="{StaticResource WhiteColor}"/>
+                <Setter Property="BorderWidth" Value="0" />
+                <Setter Property="BorderColor" Value="Transparent" />
+                <Setter Property="CornerRadius" Value="8"/>
+                <Setter Property="WidthRequest" Value="300"/>
+                <Setter Property="FontFamily" Value="{StaticResource CookieRegularFonts}"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                <Setter Property="TextColor" Value="{StaticResource Primary}"/>
+            </Style>
+
+            <Style x:Key="MainStyleCookie" TargetType="{x:Type Button}">
+                <Setter Property="BackgroundColor" Value="{StaticResource Secondary}"/>
+                <Setter Property="FontFamily" Value="{StaticResource CookieRegularFonts}" />
+                <Setter Property="BorderWidth" Value="0" />
+                <Setter Property="BorderColor" Value="Transparent" />
+                <Setter Property="CornerRadius" Value="8"/>
+                <Setter Property="WidthRequest" Value="300"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                <Setter Property="TextColor" Value="{StaticResource WhiteColor}"/>
+            </Style>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

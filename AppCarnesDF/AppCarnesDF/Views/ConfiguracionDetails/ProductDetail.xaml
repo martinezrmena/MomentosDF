@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="AppCarnesDF.Views.ConfiguracionDetails.ProductDetail">
+    <ContentPage.Content>
+        <AbsoluteLayout VerticalOptions="FillAndExpand">
+            <Image Source="{Binding Product.ImagenUrl}"
+                   Aspect="AspectFill"
+                   AbsoluteLayout.LayoutFlags="All"
+                   AbsoluteLayout.LayoutBounds="0,0,1,1"/>
+
+            <Frame AbsoluteLayout.LayoutFlags="All"
+                   AbsoluteLayout.LayoutBounds="0,0,1,1"
+                   BackgroundColor="Black"
+                   Opacity="0.6"/>
+
+            <Grid AbsoluteLayout.LayoutFlags="All"
+                  AbsoluteLayout.LayoutBounds="0,0,1,1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="6*"/>
+                </Grid.RowDefinitions>
+                <Frame BackgroundColor="{StaticResource WhiteColor}"
+                       Grid.Row="1"
+                       Margin="20"
+                       CornerRadius="12"
+                       VerticalOptions="FillAndExpand" >
+                    <Grid VerticalOptions="FillAndExpand"
+                          Margin="20"
+                          RowSpacing="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="2*"/>
+                            <RowDefinition Height="3*"/>
+                            <RowDefinition Height="5*"/>
+                        </Grid.RowDefinitions>
+                        <Label Text="{Binding Product.Titulo}"
+                               Grid.Row="0"
+                               Style="{StaticResource LabelMaterialRed}"
+                               FontSize="30"
+                               HorizontalOptions="Start"
+                               Margin="0,0,0,5"/>
+
+                        <ScrollView VerticalOptions="FillAndExpand"
+                                    Grid.Row="1">
+                            <Label Text="{Binding Product.Descripcion_Detalle}"
+                                   Style="{StaticResource LabelRobotoBlack}"
+                                   FontSize="{Binding SizeFontsOptima}"/>
+                        </ScrollView>
+
+                        <Grid HorizontalOptions="FillAndExpand"
+                              Grid.Row="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="4*"/>
+                                <ColumnDefinition Width="6*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Text="Preparación"
+                                   Grid.Row="0"
+                                   Grid.Column="1"
+                                   Style="{StaticResource LabelMaterialRed}"
+                                   FontSize="20"
+                                   HorizontalOptions="Start"/>
+
+                            <CollectionView VerticalOptions="FillAndExpand"
+                                            Grid.Row="1" Grid.Column="1"
+                                            ItemsSource="{Binding Preparaciones}">
+                                <CollectionView.ItemsLayout>
+                                    <GridItemsLayout Orientation="Horizontal" 
+                                                     SnapPointsAlignment="Center" 
+                                                     SnapPointsType="Mandatory"/>
+                                </CollectionView.ItemsLayout>
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <Image WidthRequest="100"
+                                                   HeightRequest="150"
+                                                   Grid.Row="0">
+                                                <Image.Source>
+                                                    <UriImageSource CachingEnabled="True"
+                                                                    Uri="{Binding ImagenURL}"/>
+                                                </Image.Source>
+                                            </Image>
+                                            <Label Text="{Binding ImagenName}"
+                                                   Grid.Row="1"
+                                                   HorizontalTextAlignment="Center"
+                                                   HorizontalOptions="Center"
+                                                   FontFamily="{StaticResource RobotoSlabRegularFont}"
+                                                   FontSize="8"/>
+                                        </Grid>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </Grid>
+                    </Grid>
+                </Frame>
+            </Grid>
+
+            <ImageButton Aspect="Fill"
+                         BackgroundColor="Transparent"
+                         Margin="20"
+                         Grid.Row="0" Grid.Column="0"
+                         AbsoluteLayout.LayoutBounds="0.1,0.95,100,100"
+                         AbsoluteLayout.LayoutFlags="XProportional,YProportional"
+                                         Command="{Binding BackCommand}">
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal">
+                            <VisualState.Setters>
+                                <Setter Property="Source" Value="{StaticResource ic_backdark}"/>
+                                <Setter Property="Scale" Value="1"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Pressed">
+                            <VisualState.Setters>
+                                <Setter Property="Source" Value="{StaticResource ic_backlight}"/>
+                                <Setter Property="Scale" Value="0.8"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </ImageButton>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

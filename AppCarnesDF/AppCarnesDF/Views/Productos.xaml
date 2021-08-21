@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             xmlns:behaviors="clr-namespace:AppCarnesDF.Helpers.Behaviors"
+             mc:Ignorable="d"
+             NavigationPage.HasNavigationBar="False"
+             ios:Page.UseSafeArea="true"
+             x:Class="AppCarnesDF.Views.Productos">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="lstLabelStyle" TargetType="Label" BasedOn="{StaticResource LabelMaterialWhite}">
+                <Setter Property="FontSize" Value="{Binding Source={x:Reference Name = 'lstProductos'}, Path=BindingContext.SizeFontsCookie}" />
+            </Style>
+
+            <Style x:Key="lstLabelStyleTitle" TargetType="Label" BasedOn="{StaticResource LabelMaterialWhite}">
+                <Setter Property="FontSize" Value="30" />
+            </Style>
+
+            <Style x:Key="lstLabelStyleO" TargetType="Label" BasedOn="{StaticResource LabelMaterialWhiteO}">
+                <Setter Property="FontSize" Value="{Binding Source={x:Reference Name = 'lstProductos'}, Path=BindingContext.SizeFontsOptima}" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Productos del Mes"
+                   Style="{StaticResource LabelMaterialRed}" 
+                   FontSize="40"
+                   HorizontalOptions="Start"
+                   Margin="30,30,30,5"/>
+            <ListView x:Name="lstProductos"
+                      VerticalOptions="FillAndExpand"
+                      ItemsSource="{Binding Products}" 
+                      SelectedItem="{Binding SelectedItem}" 
+                      RowHeight="400"
+                      CachingStrategy="RecycleElement"
+                      SeparatorVisibility="None">
+                <ListView.Behaviors>
+                    <behaviors:DeselectItemBehaviour />
+                </ListView.Behaviors>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <AbsoluteLayout Margin="20,20,20,5">
+                                <Frame AbsoluteLayout.LayoutFlags="All"
+                                           Margin="0"
+                                           Padding="0"
+                                           IsClippedToBounds="True"
+                                           CornerRadius="8"
+                                           AbsoluteLayout.LayoutBounds="0,0,1,1"
+                                           BackgroundColor="Black">
+                                    <Image Aspect="AspectFill">
+
+                                        <Image.Source>
+                                            <UriImageSource CachingEnabled="True"
+                                                            Uri="{Binding ImagenUrl}"/>
+                                        </Image.Source>
+                                    </Image>
+                                </Frame>
+                                <Frame AbsoluteLayout.LayoutFlags="All"
+                                           AbsoluteLayout.LayoutBounds="0,0,1,1"
+                                           CornerRadius="8"
+                                           BackgroundColor="Black"
+                                           Opacity="0.6"/>
+                                <AbsoluteLayout AbsoluteLayout.LayoutFlags="All"
+                                                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                                                BackgroundColor="Transparent"
+                                                Margin="10">
+                                    <StackLayout AbsoluteLayout.LayoutBounds="0.1,1"
+                                                 AbsoluteLayout.LayoutFlags="XProportional,YProportional">
+
+                                        <Grid ColumnSpacing="0"
+                                              RowSpacing="5"
+                                              Margin="10,30,10,10">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="80"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label Text="{Binding Titulo}"
+                                                   Grid.Row="0"
+                                                   Grid.Column="0"
+                                                   Style="{StaticResource lstLabelStyleTitle}"
+                                                   HorizontalOptions="Start"/>
+                                            <!--<Label Text="{Binding Fecha_Publicacion, StringFormat='Válido desde el {0:dd/MM/yyyy}'}"
+                                                   Grid.Row="1"
+                                                   Grid.Column="0"
+                                                   Style="{StaticResource LabelMaterialWhiteO}"
+                                                   FontSize="Small"
+                                                   HorizontalOptions="Start"/>
+                                            <Label Text="{Binding Fecha_Finalizacion, StringFormat='*Válido hasta el {0:dd/MM/yyyy}'}"
+                                                   Grid.Row="2"
+                                                   Grid.Column="0"
+                                                   Style="{StaticResource LabelMaterialWhiteO}"
+                                                   FontSize="Small"
+                                                   HorizontalOptions="Start"/>-->
+                                            <ScrollView Grid.Row="1"
+                                                        Grid.Column="0">
+                                                <Label Text="{Binding Descripcion_Resumen}"
+                                                       Style="{StaticResource LabelMaterialWhiteO}"
+                                                       FontSize="Default"
+                                                       HorizontalOptions="Start"/>
+                                            </ScrollView>
+                                            
+                                        </Grid>
+                                    </StackLayout>
+                                </AbsoluteLayout>
+                            </AbsoluteLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

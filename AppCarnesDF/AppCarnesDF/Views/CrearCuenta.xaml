@@ -1,0 +1,652 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:behavoirs="clr-namespace:AppCarnesDF.Helpers.Behaviors"
+             xmlns:externalrender="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:ef="clr-namespace:AppCarnesDF.Helpers.Effects"
+             xmlns:customexternal="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:customrender="clr-namespace:AppCarnesDF.Helpers.CustomRender"
+             mc:Ignorable="d"
+             NavigationPage.HasNavigationBar="False"
+             ios:Page.UseSafeArea="true"
+             x:Class="AppCarnesDF.Views.CrearCuenta"
+             BackgroundColor="{StaticResource WhiteColor}">
+    <ContentPage.Content>
+
+        <StackLayout>
+
+            <StackLayout BackgroundColor="{StaticResource WhiteColor}">
+                <Grid Margin="30,0,30,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="70" />
+                    </Grid.RowDefinitions>
+                    <Label Text="{Binding Title}"
+                           FontSize="{Binding Path=SizeFontsOptima}"
+                           Grid.Column="0"
+                           TextColor="{StaticResource BlackColor}"
+                           HorizontalOptions="Start"
+                           VerticalOptions="Center"
+                           FontFamily="{StaticResource RobotoSlabBoldFont}"
+                           VerticalTextAlignment="Center" />
+                    <Image Source="{StaticResource ic_exit}"
+                           Grid.Column="1"
+                           WidthRequest="20"
+                           HeightRequest="20"
+                           Aspect="AspectFit"
+                           HorizontalOptions="End">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ClosingCommand}"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Grid>
+            </StackLayout>
+            <BoxView Style="{StaticResource BVStyleSecondary}"/>
+
+            <ScrollView Margin="20,0,0,20">
+                
+                <StackLayout WidthRequest="300"
+                             Margin="0,10,0,10"
+                             HorizontalOptions="Center">
+
+                    <StackLayout WidthRequest="200"
+                                 HeightRequest="200"
+                                 HorizontalOptions="Center">
+                        <Frame Margin="0"
+                               Padding="0"
+                               IsClippedToBounds="True"
+                               HasShadow="True"
+                               WidthRequest="200"
+                               HorizontalOptions="Center"
+                               VerticalOptions="FillAndExpand"
+                               CornerRadius="8"
+                               BackgroundColor="{StaticResource Primary}">
+
+                            <Image x:Name="PhotoImage"
+                                   WidthRequest="200"
+                                   Aspect="AspectFill"
+                                   Source="{Binding Imagen}">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding PickPictureCommand}"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </Frame>
+                    </StackLayout>
+
+                    <Button x:Name="CameraButton"
+                            Text="Cambiar foto de perfil"
+                            Style="{StaticResource MainRed}"
+                            FontSize="{Binding Path=SizeFontsCookie}"
+                            Command="{Binding TakePictureCommand}"/>
+
+                    <Label Text="No. de cédula"
+                               FontSize="{Binding Path=SizeFontsOptima}"
+                               TextColor="{StaticResource BlackColor}"
+                               HorizontalOptions="Start"
+                               VerticalOptions="Center"
+                               FontFamily="{StaticResource RobotoSlabBoldFont}"
+                               VerticalTextAlignment="Center"
+                               Margin="0,10,0,0"/>
+
+                    <customrender:ExtendedEntry x:Name="txbCedula"
+                                                FontSize="{Binding Path=SizeFontsOptima}"
+                                                Text="{Binding User.Cedula}"
+                                                FontFamily="{StaticResource RobotoSlabRegularFont}"
+                                                Placeholder="No. de cédula"
+                                                Keyboard="Numeric"
+                                                MaxLength="9"
+                                                TextColor="{StaticResource BlackColor}"
+                                                BackgroundColor="{StaticResource GrayMaterial}"
+                                                HeightRequest="{Binding Height}"
+                                                Margin="0,0,0,10">
+                    </customrender:ExtendedEntry>
+
+                    <Label Text="Correo eléctronico"
+                               FontSize="{Binding Path=SizeFontsOptima}"
+                               TextColor="{StaticResource BlackColor}"
+                               HorizontalOptions="Start"
+                               VerticalOptions="Center"
+                               FontFamily="{StaticResource RobotoSlabBoldFont}"
+                               VerticalTextAlignment="Center"
+                               Margin="0,10,0,0"/>
+
+                    <customrender:ExtendedEntry x:Name="txbEmail"
+                                                FontSize="{Binding Path=SizeFontsOptima}"
+                                                Text="{Binding User.Email}"
+                                                FontFamily="{StaticResource RobotoSlabRegularFont}"
+                                                Placeholder="Email: ejemplo@hotmail.com"
+                                                ErrorText="Debe proporcionar un formato de correo valido"
+                                                BorderErrorColor="Red"
+                                                TextColor="{StaticResource BlackColor}"
+                                                BackgroundColor="{StaticResource GrayMaterial}"
+                                                Keyboard="Email"
+                                                HeightRequest="{Binding Height}"
+                                                Margin="0,0,0,10">
+                        <customrender:ExtendedEntry.Behaviors>
+                            <behavoirs:EmailValidationBehavior x:Name="EmailValidation"/>
+                        </customrender:ExtendedEntry.Behaviors>
+                    </customrender:ExtendedEntry>
+
+                    <Label Text="Nombres"
+                               FontSize="{Binding Path=SizeFontsOptima}"
+                               TextColor="{StaticResource BlackColor}"
+                               HorizontalOptions="Start"
+                               VerticalOptions="Center"
+                               FontFamily="{StaticResource RobotoSlabBoldFont}"
+                               VerticalTextAlignment="Center"
+                               Margin="0,10,0,0"/>
+
+                    <customrender:ExtendedEntry x:Name="txbNombre"
+                                                FontSize="{Binding Path=SizeFontsOptima}"
+                                                Text="{Binding User.Nombre}"
+                                                FontFamily="{StaticResource RobotoSlabRegularFont}"
+                                                Placeholder="Nombres"
+                                                TextColor="{StaticResource BlackColor}"
+                                                BackgroundColor="{StaticResource GrayMaterial}"
+                                                ErrorText="Los nombres son un campo requerido"
+                                                BorderErrorColor="Red"
+                                                MaxLength="30"
+                                                Keyboard="Text"
+                                                HeightRequest="{Binding Height}"
+                                                Margin="0,0,0,10">
+                        <customrender:ExtendedEntry.Behaviors>
+                            <behavoirs:EmptyValidationBehavior/>
+                        </customrender:ExtendedEntry.Behaviors>
+                    </customrender:ExtendedEntry>
+
+                    <Label Text="Apellidos"
+                               FontSize="{Binding Path=SizeFontsOptima}"
+                               TextColor="{StaticResource BlackColor}"
+                               HorizontalOptions="Start"
+                               VerticalOptions="Center"
+                               FontFamily="{StaticResource RobotoSlabBoldFont}"
+                               VerticalTextAlignment="Center"
+                               Margin="0,10,0,0"/>
+
+                    <customrender:ExtendedEntry x:Name="txbApellido"
+                                                FontSize="{Binding Path=SizeFontsOptima}"
+                                                Text="{Binding User.Apellido}" 
+                                                FontFamily="{StaticResource RobotoSlabRegularFont}"
+                                                Placeholder="Apellidos"
+                                                MaxLength="30"
+                                                ErrorText="Los apellidos son un campo requerido"
+                                                BorderErrorColor="Red"
+                                                TextColor="{StaticResource BlackColor}"
+                                                BackgroundColor="{StaticResource GrayMaterial}"
+                                                Keyboard="Text"
+                                                HeightRequest="{Binding Height}"
+                                                Margin="0,0,0,10">
+                        <customrender:ExtendedEntry.Behaviors>
+                            <behavoirs:EmptyValidationBehavior/>
+                        </customrender:ExtendedEntry.Behaviors>
+                    </customrender:ExtendedEntry>
+
+                    <Label Text="Tipo de cédula"
+                               FontSize="{Binding Path=SizeFontsOptima}"
+                               TextColor="{StaticResource BlackColor}"
+                               HorizontalOptions="Start"
+                               VerticalOptions="Center"
+                               FontFamily="{StaticResource RobotoSlabBoldFont}"
+                               VerticalTextAlignment="Center"
+                               Margin="0,10,0,0"/>
+
+                    <customrender:ExtendedPicker x:Name="cmbTipoIdentificación"
+                                                 FontSize="{Binding Path=SizeFontsOptima}"
+                                                 Title="Seleccione tipo de cédula"
+                                                 FontFamily="{StaticResource RobotoSlabRegularFont}"
+                                                 HorizontalOptions="Fill"
+                                                 TextColor="{StaticResource BlackColor}"
+                                                 BackgroundColor="{StaticResource GrayMaterial}"
+                                                 ItemsSource="{Binding ListTipoIdentificacion}"
+                                                 ItemDisplayBinding="{Binding Value}"
+                                                 SelectedItem="{Binding SelectedTipoIdentificacion}"
+                                                 BorderErrorColor="Red"
+                                                 HeightRequest="{Binding Height}"
+                                                 Margin="0,0,0,10">
+                        <customrender:ExtendedPicker.Behaviors>
+                            <behavoirs:PickerSetBehavior/>
+                            <behavoirs:PickerCancelBehavior/>
+                        </customrender:ExtendedPicker.Behaviors>
+                    </customrender:ExtendedPicker>
+
+                    <Label Text="Fecha de nacimiento"
+                               FontSize="{Binding Path=SizeFontsOptima}"
+                               TextColor="{StaticResource BlackColor}"
+                               HorizontalOptions="Start"
+                               VerticalOptions="Center"
+                               FontFamily="{StaticResource RobotoSlabBoldFont}"
+                               VerticalTextAlignment="Center"
+                               Margin="0,10,0,0"/>
+
+                    <customrender:ExtendedDatePicker x:Name="dpFechaNacimiento"
+                                                     Date="{Binding Fecha_Nacimiento, Mode=TwoWay}"
+                                                     FontSize="{Binding SizeFontsOptima}"
+                                                     FontFamily="{StaticResource RobotoSlabRegularFont}"
+                                                     Placeholder="Proporcione fecha de nacimiento"
+                                                     TextColor="Black"
+                                                     BackgroundColor="{StaticResource GrayMaterial}"
+                                                     MinimumDate="01/01/1900"
+                                                     HeightRequest="{Binding Path=Height}"
+                                                     Margin="0,0,0,10">
+                        <!--<customrender:ExtendedDatePicker.Behaviors>
+                            <behavoirs:DatePickerSetDateBehavior/>
+                            <behavoirs:DatePickerCanceledBehavior/>
+                        </customrender:ExtendedDatePicker.Behaviors>-->
+                    </customrender:ExtendedDatePicker>
+
+                    <Label Text="Género"
+                               FontSize="{Binding Path=SizeFontsOptima}"
+                               TextColor="{StaticResource BlackColor}"
+                               HorizontalOptions="Start"
+                               VerticalOptions="Center"
+                               FontFamily="{StaticResource RobotoSlabBoldFont}"
+                               VerticalTextAlignment="Center"
+                               Margin="0,10,0,0"/>
+
+                    <customrender:ExtendedPicker x:Name="cmbGenero"
+                                                 FontSize="{Binding Path=SizeFontsOptima}"
+                                                 Title="Seleccione Género"
+                                                 FontFamily="{StaticResource RobotoSlabRegularFont}"
+                                                 HorizontalOptions="Fill"
+                                                 ItemsSource="{Binding ListGender}"
+                                                 ItemDisplayBinding="{Binding Value}"
+                                                 SelectedItem="{Binding SelectedGender}"
+                                                 BorderErrorColor="Red"
+                                                 TextColor="{StaticResource BlackColor}"
+                                                 BackgroundColor="{StaticResource GrayMaterial}"
+                                                 HeightRequest="{Binding Height}"
+                                                 Margin="0,0,0,10">
+                        <customrender:ExtendedPicker.Behaviors>
+                            <behavoirs:PickerSetBehavior/>
+                            <behavoirs:PickerCancelBehavior/>
+                        </customrender:ExtendedPicker.Behaviors>
+                    </customrender:ExtendedPicker>
+
+                    <Label Text="Teléfono"
+                               FontSize="{Binding Path=SizeFontsOptima}"
+                               TextColor="{StaticResource BlackColor}"
+                               HorizontalOptions="Start"
+                               VerticalOptions="Center"
+                               FontFamily="{StaticResource RobotoSlabBoldFont}"
+                               VerticalTextAlignment="Center"
+                               Margin="0,10,0,0"/>
+
+                    <customrender:ExtendedEntry x:Name="txbTelefono"
+                                                FontSize="{Binding Path=SizeFontsOptima}"
+                                                FontFamily="{StaticResource RobotoSlabRegularFont}"
+                                                Text="{Binding User.Telefono}"
+                                                Placeholder="Teléfono (ej. 23456575)"
+                                                Keyboard="Telephone"
+                                                MaxLength="8"
+                                                ErrorText="El teléfono es un campo requerido"
+                                                BorderErrorColor="Red"
+                                                TextColor="{StaticResource BlackColor}"
+                                                BackgroundColor="{StaticResource GrayMaterial}"
+                                                HeightRequest="{Binding Height}"
+                                                Margin="0,0,0,10">
+                        <customrender:ExtendedEntry.Behaviors>
+                            <behavoirs:PhoneNumberValidationBehavior/>
+                        </customrender:ExtendedEntry.Behaviors>
+                    </customrender:ExtendedEntry>
+
+                    <Label Text="Provincia"
+                               FontSize="{Binding Path=SizeFontsOptima}"
+                               TextColor="{StaticResource BlackColor}"
+                               HorizontalOptions="Start"
+                               VerticalOptions="Center"
+                               FontFamily="{StaticResource RobotoSlabBoldFont}"
+                               VerticalTextAlignment="Center"
+                               Margin="0,10,0,0"/>
+
+                    <customrender:ExtendedPicker x:Name="cmbProvincia"
+                                                 FontSize="{Binding Path=SizeFontsOptima}"
+                                                 Title="Seleccione Provincia"
+                                                 FontFamily="{StaticResource RobotoSlabRegularFont}"
+                                                 HorizontalOptions="Fill"
+                                                 ItemsSource="{Binding ListProvincia}"
+                                                 ItemDisplayBinding="{Binding Value}"
+                                                 SelectedItem="{Binding SelectedProvincia}"
+                                                 BorderErrorColor="Red"
+                                                 TextColor="{StaticResource BlackColor}"
+                                                 BackgroundColor="{StaticResource GrayMaterial}"
+                                                 Margin="0,0,0,10"
+                                                 HeightRequest="{Binding Height}"
+                                                 SelectedIndexChanged="CmbProvincia_SelectedIndexChanged">
+                        <customrender:ExtendedPicker.Behaviors>
+                            <behavoirs:PickerSetBehavior/>
+                            <behavoirs:PickerCancelBehavior/>
+                        </customrender:ExtendedPicker.Behaviors>
+                    </customrender:ExtendedPicker>
+
+                    <Label Text="Cantón"
+                               FontSize="{Binding Path=SizeFontsOptima}"
+                               TextColor="{StaticResource BlackColor}"
+                               HorizontalOptions="Start"
+                               VerticalOptions="Center"
+                               FontFamily="{StaticResource RobotoSlabBoldFont}"
+                               VerticalTextAlignment="Center"
+                               Margin="0,10,0,0"/>
+
+                    <customrender:ExtendedPicker x:Name="cmbCanton"
+                                                 FontSize="{Binding Path=SizeFontsOptima}"
+                                                 Title="Seleccione Cantón"
+                                                 FontFamily="{StaticResource RobotoSlabRegularFont}"
+                                                 HorizontalOptions="Fill"
+                                                 ItemsSource="{Binding ListCantonTemp}"
+                                                 ItemDisplayBinding="{Binding Value}"
+                                                 SelectedItem="{Binding SelectedCanton}"
+                                                 TextColor="{StaticResource BlackColor}"
+                                                 BackgroundColor="{StaticResource GrayMaterial}"
+                                                 HeightRequest="{Binding Height}"
+                                                 Margin="0,0,0,10"
+                                                 SelectedIndexChanged="cmbCanton_SelectedIndexChanged">
+                        <customrender:ExtendedPicker.Behaviors>
+                            <behavoirs:PickerSetBehavior/>
+                            <behavoirs:PickerCancelBehavior/>
+                        </customrender:ExtendedPicker.Behaviors>
+                    </customrender:ExtendedPicker>
+
+                    <Label Text="Distrito"
+                               FontSize="{Binding Path=SizeFontsOptima}"
+                               TextColor="{StaticResource BlackColor}"
+                               HorizontalOptions="Start"
+                               VerticalOptions="Center"
+                               FontFamily="{StaticResource RobotoSlabBoldFont}"
+                               VerticalTextAlignment="Center"
+                               Margin="0,10,0,0"/>
+
+                    <customrender:ExtendedPicker x:Name="cmbDistrito"
+                                                 FontSize="{Binding Path=SizeFontsOptima}"
+                                                 Title="Seleccione Distrito"
+                                                 FontFamily="{StaticResource RobotoSlabRegularFont}"
+                                                 HorizontalOptions="Fill"
+                                                 ItemsSource="{Binding ListDistritoTemp}"
+                                                 ItemDisplayBinding="{Binding Value}"
+                                                 SelectedItem="{Binding SelectedDistrito}"
+                                                 TextColor="{StaticResource BlackColor}"
+                                                 BackgroundColor="{StaticResource GrayMaterial}"
+                                                 HeightRequest="{Binding Height}"
+                                                 Margin="0,0,0,10">
+                        <customrender:ExtendedPicker.Behaviors>
+                            <behavoirs:PickerSetBehavior/>
+                            <behavoirs:PickerCancelBehavior/>
+                        </customrender:ExtendedPicker.Behaviors>
+                    </customrender:ExtendedPicker>
+
+                    <!--Provincias-->
+                    
+                    <Label Text="Dirección exacta"
+                               FontSize="{Binding Path=SizeFontsOptima}"
+                               TextColor="{StaticResource BlackColor}"
+                               HorizontalOptions="Start"
+                               VerticalOptions="Center"
+                               FontFamily="{StaticResource RobotoSlabBoldFont}"
+                               VerticalTextAlignment="Center"
+                               Margin="0,10,0,0"/>
+
+                    <customrender:ExtendedEntry x:Name="txbDireccion"
+                                                FontSize="{Binding Path=SizeFontsOptima}"
+                                                Text="{Binding User.Direccion_Exacta}"
+                                                Placeholder="Dirección"
+                                                ErrorText="La dirección es un campo requerido"
+                                                FontFamily="{StaticResource RobotoSlabRegularFont}"
+                                                BorderErrorColor="Red"
+                                                TextColor="{StaticResource BlackColor}"
+                                                BackgroundColor="{StaticResource GrayMaterial}"
+                                                HeightRequest="{Binding Height}"
+                                                Margin="0,0,0,10">
+                        <customrender:ExtendedEntry.Behaviors>
+                            <behavoirs:EmptyValidationBehavior/>
+                        </customrender:ExtendedEntry.Behaviors>
+                    </customrender:ExtendedEntry>
+
+                    <Label Text="Sucursal Don Fernando de preferencia"
+                               FontSize="{Binding Path=SizeFontsOptima}"
+                               TextColor="{StaticResource BlackColor}"
+                               HorizontalOptions="Start"
+                               VerticalOptions="Center"
+                               FontFamily="{StaticResource RobotoSlabBoldFont}"
+                               VerticalTextAlignment="Center"
+                               Margin="0,10,0,0"/>
+
+                    <customexternal:PancakeView BorderColor="LightGray"
+                                                CornerRadius="10,10,10,10"
+                                                WidthRequest="300"
+                                                BackgroundColor="{StaticResource GrayMaterial}"
+                                                HeightRequest="{Binding Height}"
+                                                BorderThickness="1.5">
+
+                        <customexternal:PancakeView.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ShowSucursalesPicker}"/>
+                        </customexternal:PancakeView.GestureRecognizers>
+
+                        <Label FontSize="{Binding Path=SizeFontsOptima}"
+                               Text="{Binding PlaceholderSucursal}"
+                               VerticalTextAlignment="Center"
+                               Margin="4,0,0,0"
+                               FontFamily="{StaticResource RobotoSlabRegularFont}"
+                               TextColor="{Binding PlaceholderColor}"/>
+                    </customexternal:PancakeView>
+
+                    <StackLayout IsVisible="{Binding CrearPassword}">
+                        <Label Text="Contraseña"
+                               FontSize="{Binding Path=SizeFontsOptima}"
+                               TextColor="{StaticResource BlackColor}"
+                               HorizontalOptions="Start"
+                               VerticalOptions="Center"
+                               FontFamily="{StaticResource RobotoSlabBoldFont}"
+                               VerticalTextAlignment="Center"
+                               Margin="0,10,0,0"/>
+
+                        <customrender:ExtendedEntry FontSize="{Binding Path=SizeFontsOptima}" 
+                                                    Text="{Binding User.Password}" 
+                                                    FontFamily="{StaticResource RobotoSlabRegularFont}"
+                                                    Placeholder="Contraseña *"
+                                                    TextColor="{StaticResource BlackColor}"
+                                                    BackgroundColor="{StaticResource GrayMaterial}"
+                                                    IsPassword="True" 
+                                                    MaxLength="50"
+                                                    HeightRequest="{Binding Height}"
+                                                    BorderErrorColor="Red"
+                                                    VerticalOptions="CenterAndExpand">
+                            <Entry.Effects>
+                                <ef:ShowHidePassEffect />
+                            </Entry.Effects>
+                            <customrender:ExtendedEntry.Behaviors>
+                                <behavoirs:PasswordValidationBehavior/>
+                            </customrender:ExtendedEntry.Behaviors>
+                        </customrender:ExtendedEntry>
+
+                        <Label Text="Confirmar contraseña"
+                               FontSize="{Binding Path=SizeFontsOptima}"
+                               TextColor="{StaticResource BlackColor}"
+                               HorizontalOptions="Start"
+                               VerticalOptions="Center"
+                               FontFamily="{StaticResource RobotoSlabBoldFont}"
+                               VerticalTextAlignment="Center"
+                               Margin="0,10,0,0"/>
+
+                        <customrender:ExtendedEntry FontSize="{Binding Path=SizeFontsOptima}" 
+                                                    Text="{Binding ConfirmarPassword}" 
+                                                    FontFamily="{StaticResource RobotoSlabRegularFont}"
+                                                    Placeholder="Confirmar contraseña *"
+                                                    IsPassword="True" 
+                                                    MaxLength="50"
+                                                    TextColor="{StaticResource BlackColor}"
+                                                    BackgroundColor="{StaticResource GrayMaterial}"
+                                                    HeightRequest="{Binding Height}"
+                                                    BorderErrorColor="Red"
+                                                    VerticalOptions="CenterAndExpand">
+                            <Entry.Effects>
+                                <ef:ShowHidePassEffect />
+                            </Entry.Effects>
+                            <customrender:ExtendedEntry.Behaviors>
+                                <behavoirs:PasswordValidationBehavior/>
+                            </customrender:ExtendedEntry.Behaviors>
+                        </customrender:ExtendedEntry>
+                    </StackLayout>
+
+                    <StackLayout IsVisible="{Binding EditarPassword}">
+
+                        <externalrender:CheckBox Text="Modificar Contraseña"
+                                                 Type="Check"
+                                                 TextFontSize="{Binding Path=SizeFontsOptima}"
+                                                 TextColor="{StaticResource Primary}"
+                                                 FontFamily="{StaticResource RobotoSlabRegularFont}"
+                                                 IsChecked="{Binding ModifyPassword}"
+                                                 Margin="30,0,30,10"/>
+
+                        <StackLayout IsVisible="{Binding ModifyPassword}">
+
+                            <Label Text="Contraseña Actual"
+                                   FontSize="{Binding Path=SizeFontsOptima}"
+                                   TextColor="{StaticResource BlackColor}"
+                                   HorizontalOptions="Start"
+                                   VerticalOptions="Center"
+                                   FontFamily="{StaticResource RobotoSlabBoldFont}"
+                                   VerticalTextAlignment="Center"
+                                   Margin="0,10,0,0"/>
+
+                            <customrender:ExtendedEntry FontSize="{Binding Path=SizeFontsOptima}" 
+                                                        Text="{Binding CurrentPassword}" 
+                                                        FontFamily="{StaticResource RobotoSlabRegularFont}"
+                                                        Placeholder="Contraseña Actual*"
+                                                        TextColor="{StaticResource BlackColor}"
+                                                        BackgroundColor="{StaticResource GrayMaterial}"
+                                                        IsPassword="True" 
+                                                        MaxLength="50"
+                                                        HeightRequest="{Binding Height}"
+                                                        BorderErrorColor="Red"
+                                                        VerticalOptions="CenterAndExpand">
+                                <Entry.Effects>
+                                    <ef:ShowHidePassEffect />
+                                </Entry.Effects>
+                                <customrender:ExtendedEntry.Behaviors>
+                                    <behavoirs:PasswordValidationBehavior/>
+                                </customrender:ExtendedEntry.Behaviors>
+                            </customrender:ExtendedEntry>
+
+                            <Label Text="Nueva Contraseña"
+                               FontSize="{Binding Path=SizeFontsOptima}"
+                               TextColor="{StaticResource BlackColor}"
+                               HorizontalOptions="Start"
+                               VerticalOptions="Center"
+                               FontFamily="{StaticResource RobotoSlabBoldFont}"
+                               VerticalTextAlignment="Center"
+                               Margin="0,10,0,0"/>
+
+                            <customrender:ExtendedEntry FontSize="{Binding Path=SizeFontsOptima}" 
+                                                        Text="{Binding NewPassword}" 
+                                                        FontFamily="{StaticResource RobotoSlabRegularFont}"
+                                                        Placeholder="Contraseña *"
+                                                        TextColor="{StaticResource BlackColor}"
+                                                        BackgroundColor="{StaticResource GrayMaterial}"
+                                                        IsPassword="True" 
+                                                        MaxLength="50"
+                                                        HeightRequest="{Binding Height}"
+                                                        BorderErrorColor="Red"
+                                                        VerticalOptions="CenterAndExpand">
+                                <Entry.Effects>
+                                    <ef:ShowHidePassEffect />
+                                </Entry.Effects>
+                                <customrender:ExtendedEntry.Behaviors>
+                                    <behavoirs:PasswordValidationBehavior/>
+                                </customrender:ExtendedEntry.Behaviors>
+                            </customrender:ExtendedEntry>
+
+                            <Label Text="Confirmar contraseña"
+                               FontSize="{Binding Path=SizeFontsOptima}"
+                               TextColor="{StaticResource BlackColor}"
+                               HorizontalOptions="Start"
+                               VerticalOptions="Center"
+                               FontFamily="{StaticResource RobotoSlabBoldFont}"
+                               VerticalTextAlignment="Center"
+                               Margin="0,10,0,0"/>
+
+                            <customrender:ExtendedEntry FontSize="{Binding Path=SizeFontsOptima}" 
+                                                        Text="{Binding ConfirmarNewPassword}" 
+                                                        FontFamily="{StaticResource RobotoSlabRegularFont}"
+                                                        Placeholder="Confirmar contraseña *"
+                                                        IsPassword="True" 
+                                                        MaxLength="50"
+                                                        HeightRequest="{Binding Height}"
+                                                        BorderErrorColor="Red"
+                                                        TextColor="{StaticResource BlackColor}"
+                                                        BackgroundColor="{StaticResource GrayMaterial}"
+                                                        VerticalOptions="CenterAndExpand">
+                                <Entry.Effects>
+                                    <ef:ShowHidePassEffect />
+                                </Entry.Effects>
+                                <customrender:ExtendedEntry.Behaviors>
+                                    <behavoirs:PasswordValidationBehavior/>
+                                </customrender:ExtendedEntry.Behaviors>
+                            </customrender:ExtendedEntry>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <Label Text="Código de invitación"
+                               FontSize="{Binding Path=SizeFontsOptima}"
+                               TextColor="{StaticResource BlackColor}"
+                               HorizontalOptions="Start"
+                               VerticalOptions="Center"
+                               FontFamily="{StaticResource RobotoSlabBoldFont}"
+                               VerticalTextAlignment="Center"
+                               Margin="0,10,0,0"/>
+
+                    <customrender:ExtendedEntry x:Name="txbCodigoInvitacion"
+                                                FontSize="{Binding Path=SizeFontsOptima}"
+                                                FontFamily="{StaticResource RobotoSlabRegularFont}"
+                                                Text="{Binding User.Codigo_Invitacion}"
+                                                Placeholder="Código de Invitación"
+                                                HeightRequest="{Binding Height}"
+                                                TextColor="{StaticResource BlackColor}"
+                                                BackgroundColor="{StaticResource GrayMaterial}"
+                                                Margin="0,0,0,10"/>
+
+                    <externalrender:CheckBox Text="Acepto la política de privacidad"
+                                             Type="Check"
+                                             TextFontSize="{Binding Path=SizeFontsOptima}"
+                                             TextColor="{StaticResource Primary}"
+                                             FontFamily="{StaticResource RobotoSlabRegularFont}"
+                                             IsChecked="{Binding User.CheckedPolitica}"
+                                             Margin="30,0,30,10"/>
+
+                    <externalrender:CheckBox Text="Deseo que me contacten y envien comunicados de Carnes Don Fernando"
+                                             Type="Check"
+                                             TextFontSize="{Binding Path=SizeFontsOptima}"
+                                             TextColor="{StaticResource Primary}"
+                                             FontFamily="{StaticResource RobotoSlabRegularFont}"
+                                             IsChecked="{Binding User.CheckedMensaje}"
+                                             Margin="30,0,30,10"/>
+
+                    <!--Boton guardar-->
+                    <customexternal:PancakeView CornerRadius="8"
+                                                    BackgroundColor="{StaticResource Primary}"
+                                                    WidthRequest="300"
+                                                    HeightRequest="60">
+
+                        <customexternal:PancakeView.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding CreateAccountCommand}"/>
+                        </customexternal:PancakeView.GestureRecognizers>
+
+                        <StackLayout Orientation="Horizontal" 
+                                         HorizontalOptions="Center">
+
+                            <Image Source="{StaticResource ic_save}"
+                                   HeightRequest="20"
+                                   WidthRequest="20"
+                                   Margin="0,0,5,0"/>
+                            <Label Style="{StaticResource LabelMaterialWhite}"
+                                       FontSize="{Binding Path=SizeFontsCookie}"
+                                       Text="Guardar"/>
+                            
+                        </StackLayout>
+                    </customexternal:PancakeView>
+                    
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

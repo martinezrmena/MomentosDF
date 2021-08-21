@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:customrender="clr-namespace:AppCarnesDF.Helpers.CustomRender"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             xmlns:ef="clr-namespace:AppCarnesDF.Helpers.Effects"
+             xmlns:behavoirs="clr-namespace:AppCarnesDF.Helpers.Behaviors"
+             xmlns:externalrender="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             mc:Ignorable="d"
+             NavigationPage.HasNavigationBar="False"
+             ios:Page.UseSafeArea="true"
+             x:Class="AppCarnesDF.Views.Login">
+    <ContentPage.Content>
+        <AbsoluteLayout VerticalOptions="FillAndExpand"
+                        HorizontalOptions="FillAndExpand">
+            <Image Aspect="Fill"
+                   AbsoluteLayout.LayoutFlags="All"
+                   AbsoluteLayout.LayoutBounds="0,0,1,1"
+                   Source="{StaticResource mainscreen}"/>
+
+            <StackLayout Spacing="0"
+                         AbsoluteLayout.LayoutFlags="All"
+                         AbsoluteLayout.LayoutBounds="0,0,1,1"
+                         Margin="0,130,0,0" 
+                         VerticalOptions="FillAndExpand">
+
+                <Grid RowSpacing="0" ColumnSpacing="0" VerticalOptions="Start">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="3*"/>
+                        <RowDefinition Height="70"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <externalrender:PancakeView Grid.Row="1" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="4" 
+                                                BackgroundColor="White"
+                                                CornerRadius="20,20,0,0" 
+                                                IsClippedToBounds="true"
+                                                Margin="0,2,0,0">
+                        <StackLayout VerticalOptions="Center">
+                        </StackLayout>
+                    </externalrender:PancakeView>
+
+                    <Image VerticalOptions="Center" HeightRequest="165" WidthRequest="200" HorizontalOptions="Center"
+                            Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="2"
+                            Source="{StaticResource logo}"/>
+                </Grid>
+
+                <ScrollView VerticalOptions="FillAndExpand"
+                            BackgroundColor="{StaticResource WhiteColor}">
+                    <StackLayout Margin="20"
+                                 BackgroundColor="{StaticResource WhiteColor}"
+                                 VerticalOptions="FillAndExpand"
+                                 Spacing="10">
+                        <Label Text="Inicio de Sesión"
+                               Style="{StaticResource LabelMaterialRed}" 
+                               FontSize="{Binding Path=SizeFontsCookie}" 
+                               HorizontalOptions="Center" 
+                               VerticalOptions="CenterAndExpand"/>
+                        <customrender:ExtendedEntry FontSize="{Binding Path=SizeFonts}" 
+                                                    Text="{Binding Username}"
+                                                    FontFamily="{StaticResource RobotoSlabRegularFont}"
+                                                    VerticalOptions="CenterAndExpand"
+                                                    Placeholder="Correo eléctronico*"
+                                                    Keyboard="Email"
+                                                    PlaceholderColor="Black"
+                                                    ErrorText="Este es un campo requerido"
+                                                    TextColor="{StaticResource BlackColor}"
+                                                    BackgroundColor="{StaticResource GrayMaterial}"
+                                                    BorderErrorColor="Red">
+                            <customrender:ExtendedEntry.Behaviors>
+                                <behavoirs:EmailValidationBehavior x:Name="EmailValidation"/>
+                            </customrender:ExtendedEntry.Behaviors>
+                        </customrender:ExtendedEntry>
+                        <customrender:ExtendedEntry FontSize="{Binding Path=SizeFonts}" 
+                                                    Text="{Binding Password}" 
+                                                    FontFamily="{StaticResource RobotoSlabRegularFont}"
+                                                    Placeholder="Contraseña *" 
+                                                    TextColor="{StaticResource BlackColor}"
+                                                    BackgroundColor="{StaticResource GrayMaterial}"
+                                                    IsPassword="True"
+                                                    MaxLength="50"
+                                                    PlaceholderColor="Black"
+                                                    BorderErrorColor="Red"
+                                                    VerticalOptions="CenterAndExpand">
+                            <Entry.Effects>
+                                <ef:ShowHidePassEffect />
+                            </Entry.Effects>
+                            <customrender:ExtendedEntry.Behaviors>
+                                <behavoirs:PasswordValidationBehavior/>
+                            </customrender:ExtendedEntry.Behaviors>
+                        </customrender:ExtendedEntry>
+                        <Label Text="¿Olvidó la contraseña?"
+                               HorizontalOptions="End"
+                               TextColor="Black"
+                               FontFamily="{StaticResource RobotoSlabRegularFont}"
+                               FontSize="{Binding Path=SizeFonts}"
+                               VerticalOptions="CenterAndExpand"
+                               Margin="8,10,5,8">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ForgotPasswordCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+
+                        <externalrender:PancakeView CornerRadius="8"
+                                                BackgroundColor="{StaticResource Primary}"
+                                                WidthRequest="300"
+                                                HeightRequest="60">
+
+                            <externalrender:PancakeView.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="BtnLogin_Clicked"/>
+                            </externalrender:PancakeView.GestureRecognizers>
+
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                <Label Style="{StaticResource LabelMaterialWhite}"
+                                   FontSize="{Binding Path=SizeFontsCookie}"
+                                   Text="Ingresar"/>
+                            </StackLayout>
+                        </externalrender:PancakeView>
+
+                        <Button Text="Cancelar"
+                                Grid.Row="4"
+                                HorizontalOptions="Fill"
+                                Style="{StaticResource MainWhite}"
+                                FontSize="{Binding Path=SizeFontsCookie}"
+                                Command="{Binding BackCommand}"/>
+
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "931800645807",
+    "firebase_url": "https://momentos-don-fernando.firebaseio.com",
+    "project_id": "momentos-don-fernando",
+    "storage_bucket": "momentos-don-fernando.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:931800645807:android:f3f1271f94fbc9a96e145a",
+        "android_client_info": {
+          "package_name": "com.ConsultingGroup.AppCarnesDF"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "931800645807-hn11i21uv5art6kft87up16g8hcid0v5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTtuEtKyRHZwoXE0kkWomkzTnxK-GWAgY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "931800645807-hn11i21uv5art6kft87up16g8hcid0v5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

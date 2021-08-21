@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:lv="clr-namespace:Xamarin.Forms.MultiSelectListView;assembly=Xamarin.Forms.MultiSelectListView"
+             x:Class="AppCarnesDF.Views.Tools.MultiSelectPicker">
+
+    <Frame VerticalOptions="Center"
+           Margin="20"
+           BackgroundColor="White"
+           HeightRequest="300"
+           CornerRadius="8">
+
+        <StackLayout>
+            <Label Text="Seleccione una sucursal"
+               Style="{StaticResource LabelMaterialRed}"
+               HorizontalOptions="Start"
+               FontSize="30"
+               Margin="10"/>
+
+            <ListView x:Name="cvSucursales"
+                      ItemsSource="{Binding ListSucursal}"
+                      SeparatorVisibility="None"
+                      ItemSelected="cvSucursales_ItemSelected">
+                <!--<ListView.Behaviors>
+                    <lv:SelectedItemBehavior Command="{Binding DisplayNameCommand}"/>
+                </ListView.Behaviors>-->
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <lv:SelectableCell x:Name="SelectableCell">
+                            <lv:SelectableCell.CheckView>
+                                <Image Source="{StaticResource ic_select}" WidthRequest="30" HeightRequest="30"/>
+                            </lv:SelectableCell.CheckView>
+
+                            <lv:SelectableCell.DataView>
+                                <StackLayout Orientation="Vertical">
+                                    <Label HorizontalOptions="Center"
+                                           Text="{Binding Descripcion_Centro}"
+                                           FontFamily="{StaticResource RobotoSlabBoldFont}"/>
+                                </StackLayout>
+                            </lv:SelectableCell.DataView>
+                        </lv:SelectableCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <StackLayout Orientation="Horizontal"
+                     HorizontalOptions="End"
+                     Margin="5">
+                <Button Text="Cancelar" BackgroundColor="Transparent" TextColor="{StaticResource SecondaryDark}" Command="{Binding CancelarCommand}"/>
+                <Button Text="Aceptar" BackgroundColor="Transparent" TextColor="{StaticResource SecondaryDark}" Command="{Binding AceptarCommand}"/>
+            </StackLayout>
+        </StackLayout>
+
+    </Frame>
+    
+</pages:PopupPage>

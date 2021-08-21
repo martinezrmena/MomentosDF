@@ -1,0 +1,361 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             mc:Ignorable="d"
+             x:Class="AppCarnesDF.Views.Configuracion"
+             ios:Page.UseSafeArea="true"
+             NavigationPage.HasNavigationBar="False"
+             Title="Configuracion"
+             BackgroundColor="{StaticResource WhiteColor}">
+
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout BackgroundColor="{StaticResource WhiteColor}">
+                <Grid Margin="30,0,30,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="7*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="70" />
+                    </Grid.RowDefinitions>
+                    <Label Text="{Binding UserName}"
+                               FontSize="{Binding Path=SizeFonts}"
+                               Grid.Column="0"
+                               TextColor="{StaticResource BlackColor}"
+                               HorizontalOptions="StartAndExpand"
+                               VerticalOptions="Center"
+                               VerticalTextAlignment="Center" />
+                    <Image Source="{StaticResource ic_menu2}"
+                           Grid.Column="1"
+                           WidthRequest="20"
+                           HeightRequest="20"
+                           Aspect="AspectFit"
+                           HorizontalOptions="End">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ClosingCommand}"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Grid>
+            </StackLayout>
+            <BoxView Style="{StaticResource BVStyleSecondary}"/>
+            <ScrollView VerticalOptions="FillAndExpand">
+                <StackLayout Spacing="10" 
+                             Margin="0,20,0,0"
+                             VerticalOptions="FillAndExpand">
+
+                    <Frame CornerRadius="10"
+                           HasShadow="False"
+                           BackgroundColor="{StaticResource GrayMaterial}"
+                           Margin="10,0,10,0">
+                        <StackLayout x:Name="stkEditarPerfil">
+                            
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding EditarPerfilCommand}" />
+                            </StackLayout.GestureRecognizers>
+                            
+                            <Grid Margin="10,0,5,0"
+                                  VerticalOptions="FillAndExpand">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="8*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Image Source="{StaticResource ic_perfil}"
+                                       Grid.Column="0"
+                                       Grid.Row="0"
+                                       WidthRequest="20"
+                                       HeightRequest="20"
+                                       Aspect="AspectFit"
+                                       HorizontalOptions="Start">
+                                </Image>
+                                <Label Text="Editar perfil"
+                                       FontSize="{Binding Path=SizeFonts}"
+                                       Grid.Column="1"
+                                       Grid.Row="0"
+                                       TextColor="{StaticResource BlackColor}"
+                                       VerticalTextAlignment="Center" />
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame CornerRadius="10"
+                           HasShadow="False"
+                           BackgroundColor="{StaticResource GrayMaterial}"
+                           Margin="10,0,10,0">
+                        <StackLayout x:Name="stkCompartirCodigo">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding CompartirCodigoCommand}" />
+                            </StackLayout.GestureRecognizers>
+                            <Grid Margin="20,0,20,0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="8*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Image Source="{StaticResource ic_codigo}"
+                                       Grid.Column="0"
+                                       Aspect="AspectFit"
+                                       WidthRequest="20"
+                                       HeightRequest="20"
+                                       HorizontalOptions="Start">
+                                </Image>
+                                <Label Text="Compartir código"
+                                   FontSize="{Binding Path=SizeFonts}"
+                                   Grid.Column="1"
+                                   TextColor="{StaticResource BlackColor}"
+                                   VerticalTextAlignment="Center" />
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame CornerRadius="10"
+                           HasShadow="False"
+                           BackgroundColor="{StaticResource GrayMaterial}"
+                           Margin="10,0,10,0">
+                        <StackLayout x:Name="stkActivarNotificaciones">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="ActivarNotificacionCommand" />
+                            </StackLayout.GestureRecognizers>
+                            <Grid Margin="20,0,20,0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="5*"/>
+                                    <ColumnDefinition Width="3*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Image Source="{StaticResource ic_notificacion}"
+                                   Grid.Column="0"
+                                   WidthRequest="20"
+                                   HeightRequest="20"
+                                   Aspect="AspectFit"
+                                   HorizontalOptions="Start">
+                                </Image>
+                                <Label Text="Activar Notificaciones"
+                                   FontSize="{Binding Path=SizeFonts}"
+                                   Grid.Column="1"
+                                   TextColor="{StaticResource BlackColor}"/>
+                                <Switch x:Name="swtActivarNotificaciones"
+                                    Grid.Column="2"
+                                    Toggled="SwtActivarNotificaciones_Toggled"/>
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
+
+                    <Label Text="GENERAL"
+                           Margin="10,40,0,0"
+                           FontSize="{Binding Path=SizeFonts}"
+                           TextColor="{StaticResource BlackColor}"
+                           HorizontalOptions="Start"
+                           VerticalOptions="Center" />
+
+                    <Frame CornerRadius="10"
+                           HasShadow="False"
+                           BackgroundColor="{StaticResource GrayMaterial}"
+                           Margin="10,0,10,0">
+                        <StackLayout x:Name="stkServicioCliente">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ServicioClienteCommand}" />
+                            </StackLayout.GestureRecognizers>
+                            <Grid Margin="20,0,20,0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="8*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Image Source="{StaticResource ic_serviciocliente}"
+                                       Grid.Column="0"
+                                       Aspect="AspectFit"
+                                       WidthRequest="20"
+                                       HeightRequest="20"
+                                       HorizontalOptions="Start">
+                                </Image>
+                                <Label Text="Servicio al cliente"
+                               FontSize="{Binding Path=SizeFonts}"
+                               Grid.Column="1"
+                               TextColor="{StaticResource BlackColor}" />
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame CornerRadius="10"
+                           HasShadow="False"
+                           BackgroundColor="{StaticResource GrayMaterial}"
+                           Margin="10,0,10,0">
+                        <StackLayout x:Name="stkSucursales">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding SucursalesCommand}" />
+                            </StackLayout.GestureRecognizers>
+                            <Grid Margin="20,0,20,0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="8*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Image Source="{StaticResource ic_sucursal}"
+                                       Grid.Column="0"
+                                       Aspect="AspectFit"
+                                       WidthRequest="20"
+                                       HeightRequest="20"
+                                       HorizontalOptions="Start">
+                                </Image>
+                                <Label Text="Sucursales"
+                                       FontSize="{Binding Path=SizeFonts}"
+                                       Grid.Column="1"
+                                       TextColor="{StaticResource BlackColor}" />
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame CornerRadius="10"
+                           HasShadow="False"
+                           BackgroundColor="{StaticResource GrayMaterial}"
+                           Margin="10,0,10,0">
+                        <StackLayout x:Name="stkAcercaDe">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding AcercaDeCommand}" />
+                            </StackLayout.GestureRecognizers>
+                            <Grid Margin="20,0,20,0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="8*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Image Source="{StaticResource ic_acercade}"
+                                       Grid.Column="0"
+                                       Aspect="AspectFit"
+                                       WidthRequest="20"
+                                       HeightRequest="20"
+                                       HorizontalOptions="Start">
+                                </Image>
+                                <Label Text="Acerca de Momentos Don Fernando"
+                                       FontSize="{Binding Path=SizeFonts}"
+                                       Grid.Column="1"
+                                       TextColor="{StaticResource BlackColor}" />
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame CornerRadius="10"
+                           HasShadow="False"
+                           BackgroundColor="{StaticResource GrayMaterial}"
+                           Margin="10,0,10,0">
+                        <StackLayout x:Name="stkPoliticaPrivacidad">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding PoliticaPrivacidadCommand}" />
+                            </StackLayout.GestureRecognizers>
+                            <Grid Margin="20,0,20,0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="8*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Image Source="{StaticResource ic_privacidad}"
+                               Grid.Column="0"
+                               Aspect="AspectFit"
+                                   WidthRequest="20"
+                                   HeightRequest="20"
+                               HorizontalOptions="Start">
+                                </Image>
+                                <Label Text="Política de privacidad"
+                               FontSize="{Binding Path=SizeFonts}"
+                               Grid.Column="1"
+                               TextColor="{StaticResource BlackColor}"/>
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame CornerRadius="10"
+                           HasShadow="False"
+                           BackgroundColor="{StaticResource GrayMaterial}"
+                           Margin="10,0,10,0">
+                        <StackLayout x:Name="stkPlanLealtad" 
+                                    Margin="0,0,0,10">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding PlanLealtadCommand}"/>
+                            </StackLayout.GestureRecognizers>
+                            <Grid Margin="20,0,20,0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="8*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Image Source="{StaticResource ic_planlealtad}"
+                               Grid.Column="0"
+                               Aspect="AspectFit"
+                                   WidthRequest="20"
+                                   HeightRequest="20"
+                               HorizontalOptions="Start">
+                                </Image>
+                                <Label Text="Plan de lealtad"
+                               FontSize="{Binding Path=SizeFonts}"
+                               Grid.Column="1"
+                               TextColor="{StaticResource BlackColor}" />
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame CornerRadius="10"
+                           HasShadow="False"
+                           BackgroundColor="{StaticResource GrayMaterial}"
+                           Margin="10,0,10,0">
+                        <StackLayout x:Name="stkCloseSesion" 
+                                     Margin="0,0,0,10">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ClosingSession}"/>
+                            </StackLayout.GestureRecognizers>
+                            <Grid Margin="20,0,20,0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="8*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Image Source="{StaticResource ic_logout}"
+                                       Grid.Column="0"
+                                       Aspect="AspectFit"
+                                       WidthRequest="20"
+                                       HeightRequest="20"
+                                       HorizontalOptions="Start">
+                                </Image>
+                                <Label Text="Cerrar Sesión"
+                                       FontSize="{Binding Path=SizeFonts}"
+                                       Grid.Column="1"
+                                       TextColor="{StaticResource BlackColor}" />
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

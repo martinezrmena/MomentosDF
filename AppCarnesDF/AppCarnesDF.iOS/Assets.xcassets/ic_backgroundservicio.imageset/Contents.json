@@ -1,0 +1,27 @@
+{
+  "images": [
+    {
+      "appearances": [],
+      "scale": "1x",
+      "idiom": "iphone",
+      "filename": "ic_backgroundservicio.png"
+    },
+    {
+      "appearances": [],
+      "scale": "2x",
+      "idiom": "iphone",
+      "filename": "ic_backgroundservicio1.png"
+    },
+    {
+      "appearances": [],
+      "scale": "3x",
+      "idiom": "iphone",
+      "filename": "ic_backgroundservicio2.png"
+    }
+  ],
+  "properties": {},
+  "info": {
+    "version": 1,
+    "author": ""
+  }
+}
